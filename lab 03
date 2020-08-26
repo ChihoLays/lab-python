@@ -1,0 +1,25 @@
+#Q1
+
+n = input("Enter employee's name: ")
+h = int(input("Enter number of hour worked in a week: "))
+r = float(input("Enter hourly pay rate: "))
+ft = float(input("Enter federal tax withholding rate: "))
+st = float(input("Enter state tax withholding rate: "))
+gross = (h*r)
+ft_2 = (ft*100)
+st_2 = (st*100)
+fm = ft*gross
+sm = st*gross
+total = fm+sm
+net = gross - total
+print(f"\n\nEmployee Name: {n}")
+print(f"Hours Worked: {h:.2f}")
+print(f"Pay Rate: {r:.1f}")
+print(f"Gross Pay: {gross:.1f}")
+print(f"Deductions: \n\tFederal Withholding({ft_2:.1f}%):${fm:.1f}")
+print(f"\t State Withholding({st_2:.1f}%):${sm:.1f}")
+print(f"\t Total Deduction: ${total:.2f}")
+print(f"Net Pay: ${net:.2f}")
+
+#Q2
+
