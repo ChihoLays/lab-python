@@ -35,3 +35,47 @@ for i in range(5):
     right(144)
 
 #Q4
+
+from turtle import *
+
+def upper_circle(r):
+    for i in range(3):
+        if i == 2:
+            color('red')
+            circle(r)
+        elif i < 2:
+            if i == 1:
+                color('black')
+            elif i == 0:
+                color('blue')
+            circle(r)
+            penup()
+            forward((r*2)+(r/3))
+            pendown()
+def lower_circle(r):
+    penup()
+    goto(-100,0)
+    forward(r+(r/4))
+    right(90)
+    forward((r))
+    left(90)
+    pendown()
+    color('yellow')
+    circle(r)
+    penup()
+    forward((r * 2) + (r / 3))
+    pendown()
+    color('green')
+    circle(r)
+
+r = int(input("Enter the radius: "))
+speed(0)
+penup()
+goto(-100,0)
+pendown()
+pensize(6)
+upper_circle(r)
+lower_circle(r)
+done()
+
+#Q5
