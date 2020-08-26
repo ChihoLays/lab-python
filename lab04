@@ -1,0 +1,96 @@
+#Q1
+
+score = int(input("Enter a score: "))
+if score in range(80,101):
+   print("Your grade: A")
+elif score in range(70,80):
+   print("Your grade: B")
+elif score in range(60,70):
+   print("Your grade: C")
+elif score in range(50,60):
+   print("Your grade: D")
+elif score in range(0,50):
+   print("Your grade: F")
+else:
+   print("Invalid")
+ 
+#Q2
+
+num = eval(input("Enter a number: "))
+if (type(num)==float):
+   choice_1 = int(input("floating point(1) or scientific format(2): "))
+   if(choice_1==1):
+       print(f"{num:f}")
+   elif(choice_1==2):
+       print(f"{num:e}")
+   else:
+       print("Invalid")
+elif(type(num)==int):
+   choice_2 = int(input("Binary(1),Octal(2),Hexadecimal(3) or decimal format(4): "))
+   if(choice_2==1):
+       print(bin(num))
+   elif(choice_2==2):
+       print(oct(num))
+   elif(choice_2==3):
+       print(hex(num))
+   elif(choice_2==4):
+       print(num)
+   else:
+       print("Invalid")
+       
+#Q3
+
+num = eval(input("Enter a number: "))
+if (type(num)==float):
+   choice_1 = int(input("floating point(1) or scientific format(2): "))
+   if(choice_1==1):
+       print(f"{num:f}")
+   elif(choice_1==2):
+       print(f"{num:e}")
+   else:
+       print("Invalid")
+elif(type(num)==int):
+   choice_2 = int(input("Binary(1),Octal(2),Hexadecimal(3) or decimal format(4): "))
+   if(choice_2==1):
+       print(bin(num))
+   elif(choice_2==2):
+       print(oct(num))
+   elif(choice_2==3):
+       print(hex(num))
+   elif(choice_2==4):
+       print(num)
+   else:
+       print("Invalid")
+
+#Q4
+
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+weight = float(input("Enter you weight(kg): "))
+height = float(input("Enter your height(cm): "))
+bmi = weight/((height/100)**2)
+uw = f"{name},you are underweight"
+n = f"{name},you are Normal"
+ow = f"{name},you are Overweight"
+print("Your bodymass index (BMI) is {:.9f}".format(bmi))
+if(age<17):
+    if(bmi<15):
+        print(uw)
+    elif bmi in range(15,21):
+        print(n)
+    elif(bmi>20):
+        print(ow)
+elif age in range(17,36):
+    if(bmi<18):
+        print(uw)
+    elif bmi in range(18,25):
+        print(n)
+    elif(bmi>24):
+        print(ow)
+  elif(age>35):
+      if(bmi<19):
+          print(uw)
+      elif bmi in range(19,27):
+          print(n)
+      elif(bmi>26):
+          print(ow)
