@@ -25,3 +25,13 @@ print(f"Net Pay: ${net:.2f}")
 
 num = input("Enter four-digit number: ")
 print(f"{num[::-1]}")
+
+#Q3
+
+l = int(input("Enter lenght of the star: "))
+from turtle import *
+for i in range(5):
+    forward(l)
+    right(144)
+
+#Q4
