@@ -23,3 +23,5 @@ print(f"Net Pay: ${net:.2f}")
 
 #Q2
 
+num = input("Enter four-digit number: ")
+print(f"{num[::-1]}")
