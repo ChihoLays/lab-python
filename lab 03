@@ -1,0 +1,95 @@
+#Q1
+# import math
+# print(int(math.pi))
+# print(format(math.pi,".4f"))
+# print(format(math.pi,"e"))
+
+#Q2
+usin = input("Please enter a character: ")
+print(f'The Unicode of "{usin}" is u{ord(usin):04x}')
+
+
+#Q3
+# lit = []
+# lit.append(input("Please enter the first string: "))
+# lit.append(input("Please enter the second string: "))
+# lit.append(input("Please enter the first string: "))
+# print('The whole sting is: {}'.format("".join(lit).upper()))
+
+#Q4
+from turtle import *
+def draw_flag(size):
+    height_small = size/12
+    color("red")
+    begin_fill()
+    for i in range(2):
+        fd(size)
+        left(90)
+        fd(height_small)
+        left(90)
+    end_fill()
+    penup()
+    left(90)
+    fd(height_small)
+    right(90)
+    pendown()
+    color("white")
+    begin_fill()
+    for i in range(2):
+        fd(size)
+        left(90)
+        fd(height_small)
+        left(90)
+    end_fill()
+    for i in range(2):
+        penup()
+        left(90)
+        fd(height_small)
+        right(90)
+        pendown()
+        color("blue")
+        begin_fill()
+        for i in range(2):
+            fd(size)
+            left(90)
+            fd(height_small)
+            left(90)
+        end_fill()
+    penup()
+    left(90)
+    fd(height_small)
+    right(90)
+    pendown()
+    color("white")
+    begin_fill()
+    for i in range(2):
+        fd(size)
+        left(90)
+        fd(height_small)
+        left(90)
+    end_fill()
+    penup()
+    left(90)
+    fd(height_small)
+    right(90)
+    pendown()
+    color("red")
+    begin_fill()
+    for i in range(2):
+        fd(size)
+        left(90)
+        fd(height_small)
+        left(90)
+    end_fill()
+    penup()
+    goto(0,0)
+    pendown()
+    color("black")
+    for i in range(2):
+        fd(size)
+        left(90)
+        fd((size/2))
+        left(90)
+
+draw_flag(int(input("Enter the size here: ")))
+done()
