@@ -13,11 +13,11 @@ sm = st*gross
 total = fm+sm
 net = gross - total
 print(f"\n\nEmployee Name: {n}")
-print(f"Hours Worked: {h:.2f}")
-print(f"Pay Rate: {r:.1f}")
+print(f"Hours Worked: {h:.1f}")
+print(f"Pay Rate: {r:.2f}")
 print(f"Gross Pay: {gross:.1f}")
 print(f"Deductions: \n\tFederal Withholding({ft_2:.1f}%):${fm:.1f}")
-print(f"\t State Withholding({st_2:.1f}%):${sm:.1f}")
+print(f"\t State Withholding({st_2:.1f}%):${sm:.2f}")
 print(f"\t Total Deduction: ${total:.2f}")
 print(f"Net Pay: ${net:.2f}")
 
