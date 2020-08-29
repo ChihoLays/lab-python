@@ -85,6 +85,8 @@ try:
     p1 = list(map(float, input("Enter point 1: ").split()))
     p2 = list(map(float, input("Enter point 2: ").split()))
     p3 = list(map(float, input("Enter point 3: ").split()))
+    if p1 == [] or p2 == [] or p3 == []:
+        raise TypeError
     if p1 == p2 or p2 == p3 or p1 == p3:
         print("Error: Duplicate position!")
         exit(0)
