@@ -86,10 +86,9 @@ try:
     p2 = list(map(float, input("Enter point 2: ").split()))
     p3 = list(map(float, input("Enter point 3: ").split()))
     if p1 == [] or p2 == [] or p3 == []:
-        raise TypeError
+        raise TypeError("Error: You did not enter a number!")
     if p1 == p2 or p2 == p3 or p1 == p3:
-        print("Error: Duplicate position!")
-        exit(0)
+        raise ValueError("Error: Duplicate position!")
     area = abs(((p1[0] * (p2[1] - p3[1])) + (p2[0] * (p3[1] - p1[0]) + (p3[0] * (p1[1] - p2[1])))) / 2)
     penup()
     goto(p1[0], p1[1])
@@ -120,5 +119,5 @@ try:
         pendown()
     write("The area is {:.2f}".format(area), font=("Arial", 16, "normal"))
     done()
-except:
-    print("You did not enter a number")
+except Exception as err:
+    print(err)
