@@ -23,8 +23,8 @@ print(f"Net Pay: ${net:.2f}")
 
 #Q2
 
-num = input("Enter four-digit number: ")
-print(num[::-1])
+print(input("Enter four-digit number: ")[::-1])
+
 
 #Q3
 
