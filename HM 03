@@ -28,7 +28,7 @@ print(input("Enter four-digit number: ")[::-1])
 
 #Q3
 
-l = int(input("Enter lenght of the star: "))
+l = float(input("Enter length of the star: "))
 from turtle import *
 for i in range(5):
     forward(l)
