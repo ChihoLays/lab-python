@@ -69,7 +69,7 @@ def lower_circle(r):
     color('green')
     circle(r)
 
-r = int(input("Enter the radius: "))
+r = float(input("Enter the radius: "))
 speed(0)
 penup()
 goto(-100,0)
