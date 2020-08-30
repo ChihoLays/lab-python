@@ -1,1 +1,28 @@
+#Q1
 
+try:
+    p = []
+    for i in range(3):
+        p.append(list(map(float, input(f"p{i} = ").split())))
+    if p[0] == [] or p[1] == [] or p[2] == []:
+        raise Exception
+    if p[0] == p[1] or p[1] == p[2] or p[0] == p[2]:
+        raise ValueError("Error: Duplicate position!")
+    # Create linear eq
+    slope = (p[1][1] - p[0][1]) / (p[1][0] - p[0][0])
+    y_inter = (p[0][1] - (p[0][0] * slope))
+    expect_y = (p[2][0] * slope) + y_inter
+    mid = (p[0][0] + p[1][0]) / 2
+    if expect_y == p[2][1]:
+        if p[2][0] == mid:
+            print("p2 is on the middle of the line between p0 and p1.")
+        elif p[2][0] > mid:
+            print("p2 is on the right side of the line between p0 and p1.")
+        elif p[2][0] < mid:
+            print("p2 is on the left side of the line between p0 and p1.")
+    else:
+        print("p2 ist not on the line between p0 and p1.")
+except ValueError as err:
+    print(err)
+except Exception:
+    print("Error: You did not enter a number!")
