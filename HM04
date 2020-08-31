@@ -29,7 +29,7 @@ except ValueError as err:
     print(err)
 except Exception:
     print("Error: You did not enter the coordinate!")
-
+    
 #Q2
 
 try:
