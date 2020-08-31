@@ -31,3 +31,20 @@ except Exception:
     print("Error: You did not enter the coordinate!")
 
 #Q2
+
+try:
+    coor = []
+    for i in range(1,3):
+        coor.append(list(map(float, input(f"x{i} y{i} = ").split(","))))
+    w,h = map(float, input(f"x{i} y{i} = ").split())
+    if coor[1][0] >= (coor[0][0]-w) and coor[1][0] <= (coor[0][0]+w):
+        if coor[1][1] >= (coor[0][1]-h) and coor[1][1] <= (coor[0][1]+h):
+            print("Both rectangle overlap.")
+        else:
+            print("Both rectangle are not overlap.")
+    else:
+        print("Both rectangle are not overlap.")
+except ValueError as err:
+    print(err)
+except Exception:
+    print("Error: You did not the coordinate!")
