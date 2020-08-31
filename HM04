@@ -3,7 +3,7 @@
 try:
     p = []
     for i in range(3):
-        p.append(list(map(float, input(f"p{i} = ").split())))
+        p.append(list(map(float, input(f"p{i} = ").split(","))))
     if p[0] == [] or p[1] == [] or p[2] == []:
         raise Exception
     if p[0] == p[1] or p[1] == p[2] or p[0] == p[2]:
