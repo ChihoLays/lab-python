@@ -19,3 +19,8 @@ for i in range(usin-1,-1,-1):
 
 #Q2 type 1
 #
+
+#Q3
+n = list(range(1,int(input("Enter a number: "))))
+n.remove(3)
+print(" ".join(map(str,n)))
