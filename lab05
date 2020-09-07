@@ -15,3 +15,4 @@ for i in range(usin-1,-1,-1):
     print()
     
 #Q2
+#Ask user for int input then draw a chessboard (usin x usin)
