@@ -16,3 +16,6 @@ for i in range(usin-1,-1,-1):
     
 #Q2
 #Ask user for int input then draw a chessboard (usin x usin)
+
+#Q2 type 1
+#
