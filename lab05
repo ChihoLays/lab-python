@@ -14,26 +14,28 @@ for i in range(usin,-1,-1):
 #Q2
 #Ask user for int input then draw a chessboard (usin x usin)
 from turtle import *
-def sq_ra(size,length,kind):
+def sq(size):
+    for i in range(4):
+        fd(size)
+        left(90)
+def sq_ra(length,kind):
     if kind == 0:
         begin_fill()
-        for i in range(4):
-            fd(size)
-            left(90)
+        sq(s_sq)
         end_fill()
-        fd(size)
-        sq_re(size, length - size, 1)
+        fd(s_sq)
+        sq_re(length - s_sq, 1)
     elif kind == 1:
         penup()
-        fd(size)
-        sq_re(size, length - size, 0)
-def sq_re(size,length,kind):
-    if length % size == 0:
-        if length - size >= 0:
-            sq_ra(size, length, kind)
+        fd(s_sq)
+        sq_re(length - s_sq, 0)
+def sq_re(length,kind):
+    if length % s_sq == 0:
+        if length - s_sq >= 0:
+            sq_ra(length, kind)
     else:
         if length >= 0:
-            sq_ra(size,length,kind)
+            sq_ra(length,kind)
 try:
     usin = int(input("Enter a number: "))
     speed(0)
@@ -44,17 +46,15 @@ try:
     penup()
     goto(-50,-50)
     pendown()
-    for i in range(4):
-        fd(100)
-        left(90)
+    sq(100)
     for i in range(usin):
         penup()
         goto(-50,stack)
         pendown()
         if i % 2 == 0:
-            sq_re(s_sq, 100, 0)
+            sq_re(100, 0)
         else:
-            sq_re(s_sq, 100, 1)
+            sq_re(100, 1)
         stack += s_sq
     done()
 except TypeError:
