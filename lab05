@@ -14,35 +14,26 @@ for i in range(usin,-1,-1):
 #Q2
 #Ask user for int input then draw a chessboard (usin x usin)
 from turtle import *
+def sq_ra(size,length,kind):
+    if kind == 0:
+        begin_fill()
+        for i in range(4):
+            fd(size)
+            left(90)
+        end_fill()
+        fd(size)
+        sq_re(size, length - size, 1)
+    elif kind == 1:
+        penup()
+        fd(size)
+        sq_re(size, length - size, 0)
 def sq_re(size,length,kind):
     if length % size == 0:
         if length - size >= 0:
-            if kind == 0:
-                begin_fill()
-                for i in range(4):
-                    fd(size)
-                    left(90)
-                end_fill()
-                fd(size)
-                sq_re(size, length - size, 1)
-            elif kind == 1:
-                penup()
-                fd(size)
-                sq_re(size, length - size, 0)
+            sq_ra(size, length, kind)
     else:
         if length >= 0:
-            if kind == 0:
-                begin_fill()
-                for i in range(4):
-                    fd(size)
-                    left(90)
-                end_fill()
-                fd(size)
-                sq_re(size, length - size, 1)
-            elif kind == 1:
-                penup()
-                fd(size)
-                sq_re(size, length - size, 0)
+            sq_ra(size,length,kind)
 try:
     usin = int(input("Enter a number: "))
     speed(0)
