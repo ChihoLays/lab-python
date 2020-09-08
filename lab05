@@ -1,17 +1,16 @@
 #Q1
 
 usin = int(input("Enter a number: "))
-p_a = list(range(1,usin+1))
-p_b = list(range(1,usin+1))
+p_list = list(range(1,usin+1))
 print("Pattern A")
 for i in range(usin):
     for j in range(i+1):
-        print(p_a[j],end=" ")
+        print(p_list[j],end=" ")
     print()
 print("\nPattern B")
 for i in range(usin-1,-1,-1):
     for j in range(i+1):
-        print(p_b[j],end=" ")
+        print(p_list[j],end=" ")
     print()
     
 #Q2
