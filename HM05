@@ -9,3 +9,29 @@ for i in range(5,8):
     print(f"Loop {i} times: {keep:.3f}")
     
 #Q2
+
+from turtle import *
+def square(size):
+    for i in range(4):
+        fd(size)
+        left(90)
+def pro_cal():
+    for i in range(2): # Month name part
+        fd(210)  # width
+        rt(90)
+        fd(30)  # height
+        rt(90)
+    rt(90)
+    fd(30)
+    lt(90)
+    fd(5)
+    write("January",font=("Avenir Book",16))
+x = -1440
+penup()
+goto(x,0)
+pendown()
+while x <= 1440:
+    pro_cal()
+    x += 210
+    goto(x, 0)
+done()
