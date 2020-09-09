@@ -1,0 +1,52 @@
+#Q1
+def grade(score):
+   if score > 100 or score < 0:
+       print("Error")
+   elif 80 <= score <= 100:
+       print('A')
+   elif 70 <= score < 80:
+       print('B')
+   elif 60 <= score < 70:
+       print('C')
+   elif 50 <= score < 60:
+       print('D')
+   else :
+       print('F')
+grade(int(input("Enter your score: ")))
+
+#Q2
+def isPrime(num):
+   for i in range(2,num/2):
+       if num % i == 0:
+           print("%d is Not a Prime number" % num)
+           exit(0)
+   print("%d is a Prime number"%num)
+isPrime(int(input("Enter a number: ")))
+
+#Q3 Exam
+
+from turtle import *
+speed(0)
+def square(size):
+   for i in range(4):
+       fd(size)
+       lt(90)
+def draw(side):
+   for i in range(4):
+       for j in range(1,5):
+           square( side*j )
+       rt(90)
+draw(int(input("Enter the size: ")))
+done()
+
+#Q4
+
+from turtle import *
+def draw_polygon(x, y, side = 4, size = 100):
+   penup()
+   goto(x,y)
+   pendown()
+   circle(size,360,side)
+draw_polygon(0,0)
+done()
+
