@@ -15,12 +15,15 @@ def grade(score):
 grade(int(input("Enter your score: ")))
 
 #Q2
-def isPrime(num):
-   for i in range(2,num/2):
-       if num % i == 0:
-           print("%d is Not a Prime number" % num)
-           exit(0)
-   print("%d is a Prime number"%num)
+def isPrime(n):
+   if n == 2:
+       print(f"{n} is not a Prime number")
+       return 0
+   for i in range(2,n//2):
+       if n % i == 0:
+           print(f"{n} is not a Prime number")
+           return 0
+   print(f"{n} is a Prime number")
 isPrime(int(input("Enter a number: ")))
 
 #Q3 Exam
