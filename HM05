@@ -1,1 +1,11 @@
+#Q1
 
+usin = int(input("Input a number to find square root: "))
+test = usin/2
+for i in range(5,8):
+    for j in range(i):
+        keep = usin / test
+        test = (test+keep) / 2.0
+    print(f"Loop {i} times: {keep:.3f}")
+    
+#Q2
