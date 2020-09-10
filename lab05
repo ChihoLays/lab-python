@@ -1,24 +1,58 @@
 #Q1
 usin = int(input("Enter a number: "))
 print("Pattern A")
-for i in range(usin+1):
-    for j in range(1,i+1):
-        print(j,end=" ")
+for i in range(usin + 1):
+    for j in range(1, i + 1):
+        print(j, end=" ")
     print()
 print("\nPattern B")
-for i in range(usin,-1,-1):
-    for j in range(1,i+1):
-        print(j,end=" ")
+for i in range(usin, -1, -1):
+    for j in range(1, i + 1):
+        print(j, end=" ")
     print()
-    
 #Q2
-#Ask user for int input then draw a chessboard (usin x usin)
 from turtle import *
 def sq(size):
     for i in range(4):
         fd(size)
         left(90)
-def sq_ra(length,kind):
+try:
+    usin = int(input("Enter a number: "))
+    speed(0)
+    if usin < 0:
+        raise ValueError
+    s_sq = 100 / usin
+    stack = -50
+    penup()
+    goto(-50, -50)
+    pendown()
+    sq(100)
+    for i in range(usin):
+        penup()
+        goto(-50, stack)
+        pendown()
+        for j in range(usin):
+            sq(s_sq)
+            fd(s_sq)
+        stack += s_sq
+    done()
+except TypeError:
+    print("ERROR: Invalid type")
+except ValueError:
+    print("ERROR: Invalid amount")
+
+
+#Q3
+from turtle import *
+
+
+def sq(size):
+    for i in range(4):
+        fd(size)
+        left(90)
+
+
+def sq_ra(length, kind):
     if kind == 0:
         begin_fill()
         sq(s_sq)
@@ -29,27 +63,31 @@ def sq_ra(length,kind):
         penup()
         fd(s_sq)
         sq_re(length - s_sq, 0)
-def sq_re(length,kind):
+
+
+def sq_re(length, kind):
     if length % s_sq == 0:
         if length - s_sq >= 0:
             sq_ra(length, kind)
     else:
         if length >= 0:
-            sq_ra(length,kind)
+            sq_ra(length, kind)
+
+
 try:
     usin = int(input("Enter a number: "))
     speed(0)
     if usin < 0:
         raise ValueError
-    s_sq = 100/usin
+    s_sq = 100 / usin
     stack = -50
     penup()
-    goto(-50,-50)
+    goto(-50, -50)
     pendown()
     sq(100)
     for i in range(usin):
         penup()
-        goto(-50,stack)
+        goto(-50, stack)
         pendown()
         if i % 2 == 0:
             sq_re(100, 0)
@@ -62,8 +100,6 @@ except TypeError:
 except ValueError:
     print("ERROR: Invalid amount")
 
-
-#Q3
-for i in range(1,int(input("Enter a number: "))):
-    if i % 3 != 0: print(i,end=" ")
-
+#Q4
+for i in range(1, int(input("Enter a number: "))):
+    if i % 3 != 0: print(i, end=" ")
