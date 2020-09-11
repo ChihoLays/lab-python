@@ -1,12 +1,14 @@
 #Q1
 
 usin = int(input("Input a number to find square root: "))
-test = usin/2
-for i in range(5,8):
+guess = usin / 2
+temp = usin / guess
+for i in range(1,8):
     for j in range(i):
-        keep = usin / test
-        test = (test+keep) / 2.0
-    print(f"Loop {i} times: {keep:.3f}")
+        temp = usin / guess
+        guess = (guess + temp) / 2.0
+    if i > 4:
+        print(f"Loop {i} times: {temp:.3f}")
     
 #Q2
 
