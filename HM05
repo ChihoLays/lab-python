@@ -35,3 +35,28 @@ while x <= 1440:
     x += 210
     goto(x, 0)
 done()
+
+#Q3
+
+try:
+    usin = int(input("Input: "))
+    if (usin >= 1):
+        if usin != 1:
+            loop = usin
+            for p in range(loop): # big loop per seq
+                for i in range(1, usin + 1): # Ascending
+                    for j in range(i):
+                        print("*", end="")
+                    print("")
+                for i in range(usin - 1, 1, -1): # Descending
+                    for j in range(i):
+                        print("*", end="")
+                    print("")
+                usin -= 1
+        print("*")
+    else:
+        raise ValueError
+except TypeError:
+    print("ERROR: Invalid type")
+except ValueError:
+    print("ERROR: Invalid amount")
