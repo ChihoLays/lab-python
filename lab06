@@ -17,17 +17,14 @@ print(grade(int(input("Enter your score: "))))
 #Q2
 def isPrime(n):
     if n < 0:
-        print("Error:Negative number")
-        return 0
+        return "Error:Negative number"
     elif n == 2 or n == 1:
-       print(f"{n} is not a Prime number")
-       return 0
+       return f"{n} is not a Prime number"
     for i in range(2,n//2):
        if n % i == 0:
-           print(f"{n} is not a Prime number")
-           return 0
-    print(f"{n} is a Prime number")
-isPrime(int(input("Enter a number: ")))
+           return f"{n} is not a Prime number"
+    return f"{n} is a Prime number"
+print(isPrime(int(input("Enter a number: "))))
 
 #Q3 Exam
 
