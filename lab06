@@ -15,18 +15,26 @@ def grade(score):
 print(grade(int(input("Enter your score: "))))
 
 #Q2
-def isPrime(n):
-    if n < 0:
-        return "Error:Negative number"
-    elif n == 2 or n == 1:
-       return f"{n} is not a Prime number"
-    for i in range(2,n//2):
-       if n % i == 0:
-           return f"{n} is not a Prime number"
-    return f"{n} is a Prime number"
-print(isPrime(int(input("Enter a number: "))))
+def isPrime(x):
+    if x < 0:
+        return -1
+    elif x == 2 or x == 1:
+       return False
+    for i in range(2,x//2):
+       if x % i == 0:
+           return False
+    return True
+n = int(input("Enter a number: "))
+ip = isPrime(n)
+if ip == True:
+    print(f"{n} is a Prime number")
+elif ip == False:
+    print(f"{n} is not a Prime number")
+elif ip == -1:
+    print("Error:Negative number")
 
-#Q3 Exam
+
+#Q3
 
 from turtle import *
 speed(0)
@@ -51,5 +59,16 @@ def draw_polygon(x, y, side = 4, size = 100):
    pendown()
    circle(size,360,side)
 draw_polygon(0,0)
+draw_polygon(10,10,5)
+draw_polygon(20,20,5,200)
+draw_polygon(30,30,size=200)
 done()
 
+#Q5
+def sum_of_digits(n):
+    n = str(n)
+    sum = 0
+    for i in range(len(n)):
+        sum += int(n[i])
+    return sum
+print(sum_of_digits(22342))
