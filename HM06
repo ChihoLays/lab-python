@@ -13,7 +13,6 @@
 # Q3
 
 # Q4
-
 # def readmaxhundred(n):
 #     ones = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 #     teen = ['ten','eleven', 'twelve', 'thirteen', 'fourteen', 'fivteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
@@ -45,3 +44,21 @@
 #                 return f"{ones[(n // 100) - 1]} hundred and {ten[((n%100) // 10) - 2]}-{ones[n % 10 - 1]}".capitalize()
 #
 # print(readmaxhundred(375))
+
+#Q5
+# notes = [1000,500,100,50,20,2,1]
+# am_notes = []
+# money = int(input("Enter here: "))
+# for i in range(len(notes)):
+#     if i < 5:
+#         print(f"{notes[i]}-Bath notes: {money//notes[i]}")
+#     else:
+#         print(f"{notes[i]}-Bath coins: {money//notes[i]}")
+#     money %= notes[i]
+
+#Q6
+# def reverse(n):
+#     n = str(n)
+#     return  int(n[::-1])
+# print(reverse(3456))
+
