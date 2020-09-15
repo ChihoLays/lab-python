@@ -1,0 +1,47 @@
+# Q1
+# def time24hourTo12hour(time):
+#     hr,miniu = time.split(":")
+#     hr = int(hr)
+#     if 12 < hr < 24:
+#         return f"{hr%12}:{miniu} PM"
+#     else:
+#         return f"{hr}:{miniu} AM"
+# print(time24hourTo12hour("23:24"))
+
+# Q2
+
+# Q3
+
+# Q4
+
+# def readmaxhundred(n):
+#     ones = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+#     teen = ['ten','eleven', 'twelve', 'thirteen', 'fourteen', 'fivteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+#     ten = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+#     if n < 0 or n >= 1000:
+#         return "I don't know."
+#     elif n == 0:
+#         return "Zero"
+#     if 1 < n < 10:
+#         return ones[n-1].capitalize()
+#     elif 10 <= n < 20:
+#         return teen[n%10].capitalize()
+#     elif 20 <= n < 100:
+#         if n % 10 != 0:
+#             return f"{ten[(n // 10) - 2]}-{ones[n % 10 - 1]}".capitalize()
+#         else:
+#             return ten[(n // 10) - 2].capitalize()
+#     elif 100 <= n <= 999:
+#         if n % 100 == 0: #only hundred
+#             return f"{ones[(n//100)-1]} hundred".capitalize()
+#         else:
+#             if n % 100 < 10:  # less than 10
+#                 return f"{ones[(n // 100) - 1]} hundred and {ones[(n % 100) - 1]}".capitalize()
+#             elif 10 <= (n % 100) < 20:  # Teen
+#                 return f"{ones[(n // 100) - 1]} hundred and {teen[(n % 10)]}".capitalize()
+#             elif (n % 10) == 0: #
+#                 return f"{ones[(n // 100) - 1]} hundred and {ten[((n % 100) // 10) - 2]}".capitalize()
+#             elif 20 <= (n%100) < 100:
+#                 return f"{ones[(n // 100) - 1]} hundred and {ten[((n%100) // 10) - 2]}-{ones[n % 10 - 1]}".capitalize()
+#
+# print(readmaxhundred(375))
