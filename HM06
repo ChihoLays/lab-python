@@ -46,15 +46,24 @@
 # print(readmaxhundred(375))
 
 #Q5
-# notes = [1000,500,100,50,20,2,1]
-# am_notes = []
-# money = int(input("Enter here: "))
-# for i in range(len(notes)):
-#     if i < 5:
-#         print(f"{notes[i]}-Bath notes: {money//notes[i]}")
-#     else:
-#         print(f"{notes[i]}-Bath coins: {money//notes[i]}")
-#     money %= notes[i]
+# try:
+#     notes = [1000, 500, 100, 50, 20, 2, 1]
+#     am_notes = []
+#     money = input("Enter a integer: ")
+#     if money.isalpha():
+#         raise TypeError("Wrong type of info!")
+#     money = int(money)
+#     if money < 0:
+#         raise ValueError("Invalid amount!")
+#     for i in range(len(notes)):
+#         if i < 5:
+#             print(f"{notes[i]}-Bath notes: {money // notes[i]}")
+#         else:
+#             print(f"{notes[i]}-Bath coins: {money // notes[i]}")
+#         money %= notes[i]
+# except Exception as err:
+#     print(err)
+
 
 #Q6
 # def reverse(n):
