@@ -403,11 +403,13 @@ def readmaxhundred(n):
             elif 20 <= (n%100) < 100:
                 return f"{ones[(n // 100) - 1]} hundred and {ten[((n%100) // 10) - 2]}-{ones[n % 10 - 1]}"
 
-print(readmaxhundred(375))
+print(readmaxhundred(65))
+print(readmaxhundred(411))
+print(readmaxhundred(2354689))
 
 #Q5
 try:
-    notes = [1000, 500, 100, 50, 20, 2, 1]
+    notes = [1000, 500, 100, 50, 20,10, 2, 1]
     am_notes = []
     money = input("Enter a integer: ")
     if money.isalpha():
