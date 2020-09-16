@@ -387,21 +387,21 @@ def readmaxhundred(n):
         return teen[n%10].capitalize()
     elif 20 <= n < 100:
         if n % 10 != 0:
-            return f"{ten[(n // 10) - 2]}-{ones[n % 10 - 1]}".capitalize()
+            return f"{ten[(n // 10) - 2]}-{ones[n % 10 - 1]}"
         else:
-            return ten[(n // 10) - 2].capitalize()
+            return ten[(n // 10) - 2]
     elif 100 <= n <= 999:
         if n % 100 == 0: #only hundred
-            return f"{ones[(n//100)-1]} hundred".capitalize()
+            return f"{ones[(n//100)-1]} hundred"
         else:
             if n % 100 < 10:  # less than 10
-                return f"{ones[(n // 100) - 1]} hundred and {ones[(n % 100) - 1]}".capitalize()
+                return f"{ones[(n // 100) - 1]} hundred and {ones[(n % 100) - 1]}"
             elif 10 <= (n % 100) < 20:  # Teen
-                return f"{ones[(n // 100) - 1]} hundred and {teen[(n % 10)]}".capitalize()
+                return f"{ones[(n // 100) - 1]} hundred and {teen[(n % 10)]}"
             elif (n % 10) == 0: #
-                return f"{ones[(n // 100) - 1]} hundred and {ten[((n % 100) // 10) - 2]}".capitalize()
+                return f"{ones[(n // 100) - 1]} hundred and {ten[((n % 100) // 10) - 2]}"
             elif 20 <= (n%100) < 100:
-                return f"{ones[(n // 100) - 1]} hundred and {ten[((n%100) // 10) - 2]}-{ones[n % 10 - 1]}".capitalize()
+                return f"{ones[(n // 100) - 1]} hundred and {ten[((n%100) // 10) - 2]}-{ones[n % 10 - 1]}"
 
 print(readmaxhundred(375))
 
