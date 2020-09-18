@@ -1,0 +1,154 @@
+
+class Time():
+    def __init__(self, hour=0, minute=0, second=0):
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+
+    def print(self):
+        print(f"{self.hour:02d}:{self.minute:02d}:{self.second:02d} Hrs.")
+time1 = Time(9,30,0)
+time1.print()
+
+
+class BankAccount():
+    def __init__(self, bank_name, owner_name, account_number, current_balance):
+        self.bank = bank_name
+        self.owner = owner_name
+        self.account = account_number
+        self.balance = current_balance
+
+    def deposit(self, amount_deposit):
+        self.balance += amount_deposit
+
+    def withdraw(self, amount_withdraw):
+        if self.balance < amount_withdraw:
+                print("Not enough money!")
+        else:
+            self.balance -= amount_withdraw
+    def print_currentBalance(self):
+        print(f"Current balance: {self.balance}")
+
+bk1 = BankAccount("Kbank","Kris","123532",8000)
+bk1.print_currentBalance()
+bk1.deposit(500)
+bk1.print_currentBalance()
+bk1.withdraw(500)
+bk1.print_currentBalance()
+
+
+from turtle import *
+from math import pi
+
+class Rectangle:
+    def __init__(self, x, y, width, height):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+
+    def getArea(self):
+        area = self.width * self.height
+        return area
+
+    def getPerimeter(self):
+        perimeter = (self.width * 2) + (self.height * 2)
+        return perimeter
+
+    def move(self, newx, newy):
+        self.x = newx
+        self.y = newy
+
+    def draw(self):
+        penup()
+        goto(self.x, self.y)
+        pendown()
+        for i in range(2):
+            fd(self.width)
+            right(90)
+            fd(self.height)
+            right(90)
+    def intersect(self, rec):
+        x1 = set(range(self.x, (self.x + self.width)))
+        x2 = set(range(rec.x, (rec.x + rec.width)))
+        y1 = set(range(self.y - self.height, self.y))
+        y2 = set(range(rec.y - rec.height, rec.y))
+        x3 = list(x1.intersection(x2))
+        y3 = list(y1.intersection(y2))
+        return Rectangle(x3[0],y3[-1]+1,len(x3),len(y3))
+
+
+rec = Rectangle(0,0,50,50)
+rec.draw()
+rec2 = Rectangle(25,25,50,50)
+rec2.draw()
+rec = rec.intersect(rec2)
+begin_fill()
+rec.draw()
+end_fill()
+done()
+
+class Circle():
+    def __init__(self, x, y, radius):
+        self.x = x
+        self.y = y
+        self.radius = radius
+
+    def getArea(self):
+        return pi * pow(self.radius, 2)
+
+    def getPerimeter(self):
+        return 2 * pi * self.radius
+
+    def move(self, newx, newy):
+        self.x = newx
+        self.y = newy
+
+    def draw(self):
+        penup()
+        goto(self.x, self.y)
+        right(90)
+        fd(self.radius)
+        setheading(0)
+        pendown()
+        circle(self.radius)
+c1 = Circle(0,0,20)
+print(c1.getArea(),c1.getPerimeter())
+c1.draw()
+c1.move(100,100)
+c1.draw()
+done()
+
+
+from math import sqrt
+class QuadraticEquation():
+    def __init__(self, a, b, c):
+        self.__a = a
+        self.__b = b
+        self.__c = c
+
+    def get_a(self):
+        return self.__a
+
+    def get_b(self):
+        return self.__b
+
+    def get_c(self):
+        return self.__c
+
+    def getDiscriminant(self):
+        return pow(self.__b, 2) - (4 * self.__a * self.__c)
+
+    def getRoot1(self):
+        if self.getDiscriminant() < 0:
+            return 0
+        else:
+            return ((-self.__b + sqrt((pow(self.__b, 2)) - (4 * self.__a * self.__c))) / (2 * self.__a))
+
+    def getRoot2(self):
+        if self.getDiscriminant() < 0:
+            return 0
+        else:
+            return ((-self.__b - sqrt((pow(self.__b, 2)) - (4 * self.__a * self.__c))) / (2 * self.__a))
+eq = QuadraticEquation(1,4,2)
+print(eq.getRoot1(), eq.getRoot2())
