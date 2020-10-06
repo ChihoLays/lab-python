@@ -37,3 +37,5 @@ class Clock:
         elif self.hr <= 12:
             print(f"{self.hr % 24}:{self.min}:{self.sec} am")
 
+clock_test = Clock(34,61,61)
+clock_test.display()
