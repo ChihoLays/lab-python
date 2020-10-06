@@ -153,3 +153,48 @@ print(p.eval(3))
 r = p.add(q)
 r.print()
 r.diff().print()
+
+#Q3
+class LinearEquation:
+    def __init__(self,a,b,e,c,d,f):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+    def get_a(self):
+        return self.a
+    def get_b(self):
+        return self.b
+    def get_c(self):
+        return self.c
+    def get_d(self):
+        return self.d
+    def get_e(self):
+        return self.e
+    def get_f(self):
+        return self.f
+    def isSovable(self):
+        if ((self.a*self.d)-(self.b*self.c)) == 0:
+            return False
+        return True
+    def getX(self):
+        if not self.isSovable():
+            return None
+        upper = (self.e*self.d)-(self.b*self.f)
+        lower = (self.a*self.d)-(self.b*self.c)
+        x = (upper/lower)
+        return x
+    def getY(self):
+        if not self.isSovable():
+            return None
+        upper = (self.a*self.f)-(self.e*self.c)
+        lower = (self.a*self.d)-(self.b*self.c)
+        y = (upper/lower)
+        return y
+
+test = LinearEquation(2,1,5,1,4,34)
+print(test.isSovable())
+print(test.getX())
+print(test.getY())
