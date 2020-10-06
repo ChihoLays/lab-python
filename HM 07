@@ -27,7 +27,7 @@ class Clock:
         if new_hr >= 24:
             new_hr %= 24
         self.hr = new_hr
-    def get(self):
+    def getTime(self):
         return f"{self.hr}:{self.min}:{self.sec}"
     def tick(self):
         self.sec += 1
@@ -46,6 +46,7 @@ class Clock:
             print(f"{self.hr % 24}:{self.min}:{self.sec} am")
 
 clock_test = Clock(34,61,59)
+print(clock_test.getTime)
 clock_test.display()
 clock_test.tick()
 clock_test.display()
