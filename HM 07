@@ -1,0 +1,39 @@
+#Q1
+class Clock:
+    def __init__(self,hr,min,sec):
+        if sec >= 60:
+            min += sec // 60
+            sec %= 60
+        self.sec = sec
+        if min >= 60:
+            hr += min // 60
+            min %= 60
+        self.min = min
+        if hr >= 24:
+            hr %= 24
+        self.hr = hr
+    def set(self,new_hr,new_min,new_sec):
+        if new_sec >= 60:
+            new_min += new_sec // 60
+            new_sec %= 60
+        if new_sec >= 60:
+            new_min += new_sec // 60
+            new_sec %= 60
+        self.sec = new_sec
+        if new_min >= 60:
+            new_hr += new_min // 60
+            new_min %= 60
+        self.min = new_min
+        if new_hr >= 24:
+            new_hr %= 24
+        self.hr = new_hr
+    def get(self):
+        return f"{self.hr}:{self.min}:{self.sec}"
+    def tick(self):
+        self.sec += 1
+    def display(self):
+        if self.hr > 12:
+            print(f"{self.hr % 24}:{self.min}:{self.sec} pm")
+        elif self.hr <= 12:
+            print(f"{self.hr % 24}:{self.min}:{self.sec} am")
+
