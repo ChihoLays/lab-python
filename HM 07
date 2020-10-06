@@ -50,7 +50,7 @@ clock_test.display()
 clock_test.tick()
 clock_test.display()
 
-#Prototype
+#Almost finished
 #Q2
 class Poly:
     def __init__(self,tup):
@@ -65,26 +65,30 @@ class Poly:
         for i in range(len(poly)):
             poly[i] *= n
         return tuple(poly)
-
-    def multiply(self,p):
-        poly = list(self.poly)
-        for i in range(len(p.poly)):
-            poly[i] *= p.poly[i]
-        return tuple(poly)
-
+    def multiply(self, p):
+        product = [0] * (len(p.poly) + len(self.poly))
+        for i in range(len(self.poly)):
+            for j in range(len(p.poly)):
+                product[i + j] += self.poly[i] * p.poly[j]
+        return tuple(product)
     def power(self, n):
         if n == 0:
-            return Poly(tuple([1]))
+            return Poly(tuple([1]))  # Because x^0 = 1
         elif n == 1:
-            return Poly(self.poly)
-
+            return Poly(self.poly)  # Because x^1 = x
+        else:
+            initial_tu =  self.poly
+            temp1 = self.poly
+            for i in range(n-1):
+                temp2 = Poly(initial_tu).multiply(Poly(temp1))
+                temp1 = temp2
+            return Poly(tuple(temp2))
     def diff(self):
         poly = list(self.poly)
         for i in range(len(poly)):
             poly[i] *= i
         del poly[0]
         return tuple(poly)
-
     def eval(self,n):
         sum = 0
         for i in range(len(self.poly)):
@@ -130,11 +134,4 @@ class Poly:
         print()
 
 
-
-p = Poly((1,0,-2))
-p.print()
-q = p.power(0)
-q.print()
-# r = p.add(q)
-# r.print()
 
