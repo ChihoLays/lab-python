@@ -50,15 +50,20 @@ clock_test.display()
 clock_test.tick()
 clock_test.display()
 
-#Almost finished
+#Finished
 #Q2
 class Poly:
     def __init__(self,tup):
         self.poly = tup
     def add(self,p):
-        poly = list(self.poly)
-        for i in range(len(poly)):
-            poly[i] += p.poly[i]
+        if len(p.poly) > len(self.poly):
+            poly = list(p.poly)
+            for i in range(len(self.poly)):
+                poly[i] += self.poly[i]
+        else:
+            poly = list(self.poly)
+            for i in range(len(p.poly)):
+                poly[i] += p.poly[i]
         return Poly(tuple(poly))
     def scalar_multiply(self,n):
         poly = list(self.poly)
@@ -88,7 +93,14 @@ class Poly:
         for i in range(len(poly)):
             poly[i] *= i
         del poly[0]
-        return tuple(poly)
+        return Poly(tuple(poly))
+    def integrate(self):
+        poly = list(self.poly)
+        poly.insert(0,0)
+        for i in range(len(poly)):
+            if i != 0:
+                poly[i] /= i  # intentionally allow the number to be float
+        return Poly(tuple(poly))
     def eval(self,n):
         sum = 0
         for i in range(len(self.poly)):
@@ -133,5 +145,11 @@ class Poly:
 
         print()
 
-
-
+p = Poly((1,0,-2))
+p.print()
+q = p.power(2)
+q.print()
+print(p.eval(3))
+r = p.add(q)
+r.print()
+r.diff().print()
