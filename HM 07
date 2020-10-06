@@ -49,3 +49,92 @@ clock_test = Clock(34,61,59)
 clock_test.display()
 clock_test.tick()
 clock_test.display()
+
+#Prototype
+#Q2
+class Poly:
+    def __init__(self,tup):
+        self.poly = tup
+    def add(self,p):
+        poly = list(self.poly)
+        for i in range(len(poly)):
+            poly[i] += p.poly[i]
+        return Poly(tuple(poly))
+    def scalar_multiply(self,n):
+        poly = list(self.poly)
+        for i in range(len(poly)):
+            poly[i] *= n
+        return tuple(poly)
+
+    def multiply(self,p):
+        poly = list(self.poly)
+        for i in range(len(p.poly)):
+            poly[i] *= p.poly[i]
+        return tuple(poly)
+
+    def power(self, n):
+        if n == 0:
+            return Poly(tuple([1]))
+        elif n == 1:
+            return Poly(self.poly)
+
+    def diff(self):
+        poly = list(self.poly)
+        for i in range(len(poly)):
+            poly[i] *= i
+        del poly[0]
+        return tuple(poly)
+
+    def eval(self,n):
+        sum = 0
+        for i in range(len(self.poly)):
+            sum += (self.poly[i]*(n**i))
+        return sum
+    def print(self):
+        count = 0
+        for i in range(len(self.poly)):
+            if i == 0 and count == 0:
+                if self.poly[i] != 0:
+                    print(f"{self.poly[i]} ",end="")
+                    count += 1
+            else:
+                if count == 0 and self.poly[i] != 0:
+                    if self.poly[i] == 1 and i == 1:
+                        print(f"x ", end="")
+                    elif self.poly[i] == 1:
+                        print(f"x^{i} ", end="")
+                    elif i == 1 and self.poly[i] != 1:
+                        print(f"{self.poly[i]}x ", end="")
+                    else:
+                        print(f"{self.poly[i]}x^{i} ", end="")
+                    count += 1
+                elif self.poly[i] > 0:
+                    if self.poly[i] == 1 and i == 1:
+                        print(f"+ x ", end="")
+                    elif self.poly[i] == 1:
+                        print(f"+ x^{i} ", end="")
+                    elif i == 1 and self.poly[i] != 1:
+                        print(f"+ {self.poly[i]}x ", end="")
+                    else:
+                        print(f"+ {self.poly[i]}x^{i} ", end="")
+                elif self.poly[i] < 0:
+                    if self.poly[i] == -1 and i == 1:
+                        print(f"- x ", end="")
+                    elif self.poly[i] == -1:
+                        print(f"- x^{i} ", end="")
+                    elif i == 1 and self.poly[i] != 1:
+                        print(f"- {abs(self.poly[i])}x ", end="")
+                    else:
+                        print(f"- {abs(self.poly[i])}x^{i} ", end="")
+
+        print()
+
+
+
+p = Poly((1,0,-2))
+p.print()
+q = p.power(0)
+q.print()
+# r = p.add(q)
+# r.print()
+
