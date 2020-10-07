@@ -45,11 +45,15 @@ class Clock:
         elif self.hr <= 12:
             print(f"{self.hr % 24}:{self.min}:{self.sec} am")
 
-clock_test = Clock(34,61,59)
-print(clock_test.getTime)
+clock_test = Clock(34, 61, 59)
+clock_test2 = Clock(47, 59, 59)
+print(clock_test.getTime())
 clock_test.display()
 clock_test.tick()
 clock_test.display()
+clock_test2.display()
+clock_test2.tick()
+clock_test2.display()
 
 #Finished
 #Q2
