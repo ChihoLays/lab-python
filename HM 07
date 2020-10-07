@@ -66,25 +66,25 @@ class Poly:
         poly = list(self.poly)
         for i in range(len(poly)):
             poly[i] *= n
-        return tuple(poly)
+        return Poly(tuple(poly))
     def multiply(self, p):
         product = [0] * (len(p.poly) + len(self.poly))
         for i in range(len(self.poly)):
             for j in range(len(p.poly)):
                 product[i + j] += self.poly[i] * p.poly[j]
-        return tuple(product)
+        return Poly(tuple(product))
     def power(self, n):
         if n == 0:
             return Poly(tuple([1]))  # Because x^0 = 1
         elif n == 1:
             return Poly(self.poly)  # Because x^1 = x
         else:
-            initial_tu =  self.poly
-            temp1 = self.poly
+            initial_tu =  Poly(self.poly)
+            temp1 = Poly(self.poly)
             for i in range(n-1):
-                temp2 = Poly(initial_tu).multiply(Poly(temp1))
+                temp2 = initial_tu.multiply(temp1)
                 temp1 = temp2
-            return Poly(tuple(temp2))
+            return Poly(tuple(temp2.poly))
     def diff(self):
         poly = list(self.poly)
         for i in range(len(poly)):
@@ -144,12 +144,16 @@ class Poly:
 
 p = Poly((1,0,-2))
 p.print()
-q = p.power(2)
-q.print()
 print(p.eval(3))
+q = p.power(2)
+r = p.add(q)
+q.print()
 r = p.add(q)
 r.print()
-r.diff().print()
+r = r.diff()
+r.print()
+r.integrate().print()
+r.scalar_multiply(2).print()
 
 #Q3
 class LinearEquation:
