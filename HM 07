@@ -30,15 +30,7 @@ class Clock:
     def getTime(self):
         return f"{self.hr}:{self.min}:{self.sec}"
     def tick(self):
-        self.sec += 1
-        if self.sec >= 60:
-            self.min += self.sec // 60
-            self.sec %= 60
-        if self.min >= 60:
-            self.hr += self.min // 60
-            self.min %= 60
-        if self.hr >= 24:
-            self.hr %= 24
+        self.set(self.hr,self.min,self.sec+1)
     def display(self):
         if self.hr > 12:
             print(f"{self.hr % 24}:{self.min}:{self.sec} pm")
