@@ -181,14 +181,14 @@ class LinearEquation:
             return False
         return True
     def getX(self):
-        if not self.__isSovable():
+        if not self.isSovable():
             return None
         upper = (self.__e*self.__d)-(self.__b*self.__f)
         lower = (self.__a*self.__d)-(self.__b*self.__c)
         x = (upper/lower)
         return x
     def getY(self):
-        if not self.__isSovable():
+        if not self.isSovable():
             return None
         upper = (self.__a*self.__f)-(self.__e*self.__c)
         lower = (self.__a*self.__d)-(self.__b*self.__c)
