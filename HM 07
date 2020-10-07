@@ -200,3 +200,89 @@ print(test.isSovable())
 print(test.getX())
 print(test.getY())
 
+
+#Advanced 
+from itertools import zip_longest
+
+
+class Poly:
+    def __init__(self, coef_Xs):
+        self.coef_Xs = [eachOfCoef for eachOfCoef in coef_Xs]
+        self.length = len(self.coef_Xs)
+
+    def add(self, p):
+        result = [sum(eachCouple) for eachCouple in zip_longest(self.coef_Xs, p.coef_Xs, fillvalue=0)]
+        return Poly(tuple(result))
+
+    def scalar_multiply(self, n):
+        scalarMultiply = [eachnum * n for eachnum in self.coef_Xs]
+        return Poly(tuple(scalarMultiply))
+
+    def multiply(self, p):
+        resultLength = self.length + p.length
+        results = [0 for element in range(resultLength)]
+        for index_Self, eachSelf in enumerate(self.coef_Xs):
+            for index_p, eachP in enumerate(p.coef_Xs):
+                results[index_Self + index_p] += eachSelf * eachP
+        return Poly(tuple(results))
+
+    def power(self, n):
+        result = self
+        for multiply_itself in range(n - 1):
+            result = result.multiply(self)
+        return result
+
+    def diff(self):
+        resultLength = self.length - 1
+        results = [0 for element in range(resultLength)]
+        for index_Self, eachSelf in enumerate(self.coef_Xs):
+            if index_Self != 0:
+                results[index_Self - 1] = index_Self * eachSelf
+        return Poly(tuple(results))
+
+    def integrate(self):
+        resultLength = self.length + 1
+        results = [0 for element in range(resultLength)]
+        for index_Self, eachSelf in enumerate(self.coef_Xs):
+            results[index_Self + 1] = (eachSelf / (index_Self + 1))
+        return Poly(tuple(results))
+
+    def eval(self, n):
+        result = 0
+        for index_Self, eachSelf in enumerate(self.coef_Xs):
+            result += eachSelf * pow(n, index_Self)
+        return result
+
+    def print(self):
+        result = ""
+        for index_Self, eachSelf in enumerate(self.coef_Xs):
+            if eachSelf != 0:
+                if index_Self == 0:
+                    result += f"{eachSelf}"
+
+                elif index_Self == 1:
+                    if eachSelf < 0:
+                        result += f" {eachSelf}x"
+                    else:
+                        result += f" +{eachSelf}x"
+                else:
+                    if eachSelf < 0:
+                        result += f" {eachSelf}x^{index_Self}"
+                    else:
+                        result += f" +{eachSelf}x^{index_Self}"
+        print(result)
+
+
+test = Poly((14,7,-5,0,0,18))
+test.print()
+p = Poly((1, 0, -2))
+p.print()
+q = p.power(2)
+q.print()
+value = p.eval(3)
+print(value)
+r = p.add(q)
+r.print()
+r.diff().print()
+b = r.diff()
+b.integrate().print()
