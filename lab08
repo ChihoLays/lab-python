@@ -63,3 +63,17 @@ print(LCS("other","another"))
 print(LCS("sister","water"))
 print(LCS("scada","smart home"))
 print(LCS("philosophically","zoophilous"))
+
+#Q5 vr.fast
+
+def LCS(s1,s2):
+    maxi = 0
+    if(len(s2) > len(s1)):
+        s1,s2 = s2,s1
+    for i in range(len(s1)):
+        for j in range(len(s1)):
+            if((s1[i:i+j] in s2) and j + 1 > maxi):
+                maxi = j + 1
+                ans = s1[i:i+j]
+    return ans
+
