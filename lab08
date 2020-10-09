@@ -20,15 +20,16 @@ print()
 #Q3
 longstr = str(input("Enter a long string: "))
 shortstr = str(input("Enter a short string: "))
-word_list = []
+check = 0
 for i in range(len(longstr)):
     for j in range(1,len(longstr)+1):
-         if longstr[i:j] != "":
-            word_list.append(longstr[i:j])
-if shortstr in word_list:
+         if longstr[i:j] == shortstr:
+            check = 1
+if check == 1:
     print(True)
 else:
     print(False)
+
 
 #Q4
 first = input("Enter your first name: ").upper()
