@@ -1,0 +1,64 @@
+#Q1
+text = "abcdefghijk"
+print(text[5])
+print(text[1:4])
+print(text[7:11])
+print(text[::3])
+print(text[::-2])
+print(text[3:10:3])
+print(text[:3].upper())
+
+#Q2
+txt = "book,dog,drink,rain,pen,eat,cloud,hamburger,food,icecream"
+for i in txt:
+    if i != ",":
+        print(i,end="")
+    elif i == ",":
+        print()
+print()
+
+#Q3
+longstr = str(input("Enter a long string: "))
+shortstr = str(input("Enter a short string: "))
+word_list = []
+for i in range(len(longstr)):
+    for j in range(1,len(longstr)+1):
+         if longstr[i:j] != "":
+            word_list.append(longstr[i:j])
+if shortstr in word_list:
+    print(True)
+else:
+    print(False)
+
+#Q4
+first = input("Enter your first name: ").upper()
+last  = input("Enter your last name: ").upper()
+sex = input("Enter your gender (m/f): ").upper()
+print(f"Your username: {sex}{last[0]}{first[:6]}")
+
+#Q5
+def LCS(s1,s2):
+    if s1 == s2:
+        return s1
+    else:
+        word_list = []
+        for i in range(len(s1)):
+            for j in range(1,len(s1)+1):
+                if s1[i:j] != "":
+                    word_list.append(s1[i:j])
+    select = []
+    for i in word_list:
+        if s2.find(i) != -1:
+            select.append(i)
+    max = 0
+    for i in select:
+        if len(i) > max:
+            max = len(i)
+            lcs = i
+    return lcs
+
+print(LCS("ingeniuos","intelligent"))
+print(LCS("other","another"))
+print(LCS("sister","water"))
+print(LCS("scada","smart home"))
+print(LCS("philosophically","zoophilous"))
