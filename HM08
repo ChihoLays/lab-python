@@ -1,0 +1,24 @@
+#  Q1
+def conint_bi(num):
+    bi = ""
+    while (num>0):
+        remain = str(num%2)
+        bi += remain
+        num //= 2
+    return bi
+def conbi_int(bi):
+    sum = 0
+    for i in range(len(bi)):
+        if bi[i] == '1':
+            sum += (2**i)
+    return sum
+
+try:
+    usin = int(input("Input an integer: "))
+    if usin < 0:
+        print("Error: The input is negative!")
+    else:
+        print(f"Binary -> Integer: {conint_bi(usin)}")
+        print(f"Integer -> Binary: {conbi_int(conint_bi(usin))}")
+except ValueError:
+   print("Invalid input, please enter an integer.")
