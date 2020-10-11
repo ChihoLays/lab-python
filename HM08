@@ -45,10 +45,18 @@ def percent_str(count_list,str_len):
         per_list.append((i/str_len)*100)
     return per_list
 
-usstr = input("Enter some text: ")
-apha_list = alpha(usstr)
-per_list = percent_str(count_str(apha_list,usstr),len(usstr))
-print("-- Character Frequency Table -")
-print("char percentage (character count / string length)")
-for i in range(len(apha_list)):
-    print(f"{apha_list[i]}\t {per_list[i]:5.2f}%")
+try:
+    usstr = input("Enter some text: ")
+    if usstr.isdigit():
+        raise TypeError("Error: This is not a text.")
+    else:
+        if not usstr.isalpha():
+            raise TypeError("Error: Invalid input.")
+    apha_list = alpha(usstr)
+    per_list = percent_str(count_str(apha_list, usstr), len(usstr))
+    print("-- Character Frequency Table -")
+    print("char percentage (character count / string length)")
+    for i in range(len(apha_list)):
+        print(f"{apha_list[i]}\t {per_list[i]:5.2f}%")
+except Exception as err:
+    print(err)
