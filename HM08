@@ -22,3 +22,27 @@ try:
         print(f"Integer -> Binary: {conbi_int(conint_bi(usin))}")
 except ValueError:
    print("Invalid input, please enter an integer.")
+   
+#  Q2
+def alpha(usstr):
+    alpha_list = []
+    for i in usstr:
+        if i not in alpha_list:
+            alpha_list.append(i)
+    return alpha_list
+def count_str(alpha_list,usstr):
+    count_list = [0] * len(apha_list)
+    for i in range(len(apha_list)):
+        for j in usstr:
+            if apha_list[i] == j:
+                count_list[i] += 1
+    return count_list
+
+usstr = input("Enter some text: ")
+apha_list = alpha(usstr)
+count_list = count_str(apha_list,usstr)
+str_len = len(usstr)
+print("-- Character Frequency Table -")
+print("char percentage (character count / string length)")
+for i in range(len(apha_list)):
+    print("{}\t{:.2f}%".format(apha_list[i],(count_list[i]/str_len)*100))
