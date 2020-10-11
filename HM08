@@ -24,7 +24,6 @@ except ValueError:
    print("Invalid input, please enter an integer.")
    
 #  Q2
-#  Q2
 def alpha(usstr):
     alpha_list = []
     for i in usstr:
