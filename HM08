@@ -58,3 +58,75 @@ try:
         print(f"{apha_list[i]}\t {per_list[i]:5.2f}%")
 except Exception as err:
     print(err)
+    
+#  Q3
+from turtle import *
+def alpha(usstr):
+    alpha_list = []
+    for i in usstr:
+        if i not in alpha_list:
+            alpha_list.append(i)
+    return alpha_list
+def count_str(alpha_list,usstr):
+    count_list = [0] * len(apha_list)
+    for i in range(len(apha_list)):
+        for j in usstr:
+            if apha_list[i] == j:
+                count_list[i] += 1
+    return count_list
+def percent_str(count_list,str_len):
+    per_list = []
+    for i in count_list:
+        per_list.append((i/str_len)*100)
+    return per_list
+def draw_rec(n):
+    left(90)
+    for i in range(2):
+        fd(n*20)
+        right(90)
+        fd(10)
+        right(90)
+    setheading(0)
+
+def draw_graph(count_list,apha_list):
+    speed(0)
+    left(90)
+    fd(max(count_list)*20)
+    fd(20)
+    stamp()
+    fd((-max(count_list)*20)-20)
+    right(90)
+    for i in range(len(count_list)):
+        fd(20)
+        draw_rec(count_list[i])
+        fd(10)
+    fd(20)
+    stamp()
+    penup() #write each character
+    goto(0,0)
+    setheading(0)
+    right(90)
+    fd(20)
+    right(-90)
+    for i in range(len(apha_list)):
+        fd(20)
+        pendown()
+        write(apha_list[i],font=("Arial", 14, "normal"))
+        penup()
+        fd(10)
+    goto(9999,0) # hide cursor
+    done()
+
+
+try:
+    usstr = input("Enter some text: ")
+    if usstr.isdigit():
+        raise TypeError("Error: This is not a text.")
+    else:
+        if not usstr.isalpha():
+            raise TypeError("Error: Invalid input.")
+    apha_list = alpha(usstr)
+    per_list = percent_str(count_str(apha_list, usstr), len(usstr))
+    draw_graph(count_str(apha_list, usstr),apha_list)
+except Exception as err:
+    print(err)
