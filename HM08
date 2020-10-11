@@ -38,8 +38,6 @@ def count_str(alpha_list,usstr):
                 count_list[i] += 1
     return count_list
 def percent_str(count_list,str_len):
-    print(count_list)
-    print(str_len)
     per_list = []
     for i in count_list:
         per_list.append((i/str_len)*100)
