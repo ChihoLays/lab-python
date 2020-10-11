@@ -17,6 +17,8 @@ try:
     usin = int(input("Input an integer: "))
     if usin < 0:
         print("Error: The input is negative!")
+    elif usin == 0:
+        print("0")
     else:
         print(f"Binary -> Integer: {conint_bi(usin)}")
         print(f"Integer -> Binary: {conbi_int(conint_bi(usin))}")
