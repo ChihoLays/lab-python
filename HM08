@@ -130,3 +130,21 @@ try:
     draw_graph(count_str(apha_list, usstr),apha_list)
 except Exception as err:
     print(err)
+
+#  Q4
+usstr = input("Enter the first 9 digits of an ISBN-10 as a string: ")
+if len(usstr) < 9:
+    print("You enter less than 9 digit")
+elif len(usstr) > 9:
+    print("You enter more than 9 digit")
+elif not usstr.isdigit():
+    print("Invalid input.")
+else:
+    d10 = 0
+    for i in range(9):
+        d10 += int(usstr[i]) * (i+1)
+    d10 %= 11
+    if d10 == 10:
+        d10 = "X"
+    usstr += str(d10)
+    print(f"\nYour ISBN-10 number is {usstr}")
