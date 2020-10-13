@@ -5,8 +5,9 @@ def conint_bi(num):
         remain = str(num%2)
         bi += remain
         num //= 2
-    return bi
+    return bi[::-1]
 def conbi_int(bi):
+    bi = bi[::-1]
     sum = 0
     for i in range(len(bi)):
         if bi[i] == '1':
@@ -24,6 +25,7 @@ try:
         print(f"Integer -> Binary: {conbi_int(conint_bi(usin))}")
 except ValueError:
    print("Invalid input, please enter an integer.")
+
    
 #  Q2
 def alpha(usstr):
