@@ -34,7 +34,7 @@ def alpha(usstr):
         if i not in alpha_list:
             alpha_list.append(i)
     return alpha_list
-def count_str(alpha_list,usstr):
+def count_str(apha_list,usstr):
     count_list = [0] * len(apha_list)
     for i in range(len(apha_list)):
         for j in usstr:
