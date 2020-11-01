@@ -20,12 +20,17 @@ def my_count(lst):
 
 
 list1 = [3,6,6,3,7,2,0,1,5,4]
-def remove_the_thirds(x):
-    count = [i for i in range(0,len(x),3)]
-    count.remove(0)
-    print(count)
+def remove_the_thirds(lst):
+    temp = []
+    for i in range(1,len(lst)+1):
+        if i % 3 != 0 or i == 1:
+            temp.append(lst[i-1])
+    lst.clear()
+    for i in temp:
+        lst.append(i)
 remove_the_thirds(list1)
 print(list1)
+
 
 from turtle import *
 def draw_rec(n):
