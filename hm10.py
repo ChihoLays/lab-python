@@ -75,3 +75,20 @@ list2 = [4,1,2,5]
 print(my_union(list1,list2))
 print(my_intersection(list1,list2))
 print(my_difference(list1,list2))
+
+def print_table(lst):
+    row = len(lst) - 1
+    column = len(lst[0])
+    for i in range(column):
+        print(lst[0][i],end="\t")
+    print()
+    for i in range(row):
+        for j in lst[i+1]:
+            print(j,end="\t")
+        print()
+
+test1 = [["X","Y"],[0,0],[10,10],[200,200]]
+print_table(test1)
+test2 = [["ID","Name","Surname"],["001","Guido","van Rossum"],["002","Donald","Knuth"],["003","Gordon","Moore"]]
+print_table(test2)
+
