@@ -92,3 +92,17 @@ print_table(test1)
 test2 = [["ID","Name","Surname"],["001","Guido","van Rossum"],["002","Donald","Knuth"],["003","Gordon","Moore"]]
 print_table(test2)
 
+def isAnagram(str1,str2):
+    lst1 = list(str1)
+    lst2 = list(str2)
+    for i in lst1:
+        if i in lst2:
+            lst2.remove(i)
+        elif i not in lst2:
+            return False
+    if lst2 == []:
+        return True
+    else:
+        return False
+    
+print(isAnagram("silent","listen"))
