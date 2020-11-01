@@ -49,3 +49,29 @@ def bubble_sort(lst):
 test = [3,2,9,7,8,1]
 bubble_sort(test)
 print(test)
+
+def my_union(lst1,lst2):
+    temp = []
+    for i in lst1:
+        temp.append(i)
+    for i in list2:
+        if i not in temp:
+            temp.append(i)
+    return temp
+def my_intersection(lst1,lst2):
+    temp = []
+    for i in lst1:
+        if i in lst2:
+            temp.append(i)
+    return temp
+def my_difference(lst1,lst2):
+    temp = []
+    for i in lst1:
+        if i not in lst2:
+            temp.append(i)
+    return temp
+list1 = [3,1,2,7]
+list2 = [4,1,2,5]
+print(my_union(list1,list2))
+print(my_intersection(list1,list2))
+print(my_difference(list1,list2))
