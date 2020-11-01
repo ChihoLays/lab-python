@@ -35,3 +35,17 @@ def pie_chart(data):
     done()
 
 pie_chart([3,1,3,3,2,3,3,2,3,2,4,3,3,3,3,4,3,4,3,3,3,4,3])
+
+
+def bubble_sort(lst):
+    num = len(lst)
+    for i in range(num):
+        for j in range(0, num - i - 1):
+            if lst[j] > lst[j + 1]:
+                temp = lst[j]
+                lst[j] = lst[j + 1]
+                lst[j + 1] = temp
+
+test = [3,2,9,7,8,1]
+bubble_sort(test)
+print(test)
