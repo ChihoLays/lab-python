@@ -45,10 +45,10 @@ def bubble_sort(lst):
                 temp = lst[j]
                 lst[j] = lst[j + 1]
                 lst[j + 1] = temp
+    return lst  
 
-test = [3,2,9,7,8,1]
-bubble_sort(test)
-print(test)
+print(bubble_sort([3,2,9,7,8,1]))
+
 
 def my_union(lst1,lst2):
     temp = []
