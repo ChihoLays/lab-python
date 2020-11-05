@@ -1,3 +1,4 @@
+#Q1
 import math as m
 
 class Point(object):
@@ -44,6 +45,7 @@ print(Point(x=1,y=2).printInfo())
 print(Circle(x=5,y=6,radius=1).printInfo())
 print(Cylinder(x=5,y=6,radius=1,height=1).printInfo())
 
+#Q2
 import math as m
 class Calculator(object):
 
