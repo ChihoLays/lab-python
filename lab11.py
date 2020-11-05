@@ -44,6 +44,7 @@ print(Point(x=1,y=2).printInfo())
 print(Circle(x=5,y=6,radius=1).printInfo())
 print(Cylinder(x=5,y=6,radius=1,height=1).printInfo())
 
+import math as m
 class Calculator(object):
 
     def __init__(self, acc):
@@ -84,5 +85,46 @@ class Calculator(object):
     def print_result(self):
 
         return f"Result: {self.acc:.2f}"
-    
-    
+
+
+class Sci_calc(Calculator):
+
+    def __init__(self, acc):
+
+        super().__init__(acc)
+
+    def square(self):
+
+        self.acc = super().multiply(self.acc)
+
+        return self.acc
+
+    def exp(self, x):
+
+        temp = self.acc
+        for i in range(1, x):
+            self.acc = super().multiply(temp)
+
+        return self.acc
+
+    def factorial(self):
+
+        lenacc = int(self.acc)
+        fmod = 2.0
+
+        if 0 <= self.acc <= 1:
+            self.acc = 1
+            return self.acc
+
+        for i in range(2, lenacc + 1):
+            if self.acc % fmod == 0 or self.acc % i == 0:
+                self.acc = m.factorial(self.acc)
+                break
+            else:
+                return "Error: cannot factorial"
+            fmod += 1.0
+
+        return self.acc
+
+    def print_result(self):
+        return f"{self.acc:.2e}"
