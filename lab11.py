@@ -1,7 +1,7 @@
 #Q1
 import math as m
 
-class Point(object):
+class Point():
 
     def __init__(self, x=0, y=0):
         self.x = x
@@ -47,7 +47,7 @@ print(Cylinder(x=5,y=6,radius=1,height=1).printInfo())
 
 #Q2
 import math as m
-class Calculator(object):
+class Calculator():
 
     def __init__(self, acc):
 
