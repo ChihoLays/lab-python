@@ -130,3 +130,5 @@ class Sci_calc(Calculator):
 
     def print_result(self):
         return f"{self.acc:.2e}"
+
+    #Q3
