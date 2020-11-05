@@ -43,3 +43,46 @@ class Cylinder(Circle):
 print(Point(x=1,y=2).printInfo())
 print(Circle(x=5,y=6,radius=1).printInfo())
 print(Cylinder(x=5,y=6,radius=1,height=1).printInfo())
+
+class Calculator(object):
+
+    def __init__(self, acc):
+
+        self.acc = acc
+
+    def set_accumulator(self, a):
+
+        self.acc = a
+
+    def get_accumulator(self):
+
+        return self.acc
+
+    def add(self, x):
+
+        self.acc += x
+        return self.acc
+
+    def subtract(self, x):
+
+        self.acc -= x
+        return self.acc
+
+    def multiply(self, x):
+
+        self.acc *= x
+        return self.acc
+
+    def divide(self, x):
+
+        if x == 0:
+            return "Error : cant divided by zero"
+        else:
+            self.acc /= x
+            return self.acc
+
+    def print_result(self):
+
+        return f"Result: {self.acc:.2f}"
+    
+    
