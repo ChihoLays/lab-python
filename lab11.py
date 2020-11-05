@@ -131,4 +131,78 @@ class Sci_calc(Calculator):
     def print_result(self):
         return f"{self.acc:.2e}"
 
-    #Q3
+#Q3 still need to fix
+class Name:
+    def __init__(self, title, firstname, lastname):
+        self.title = title
+        self.fst = firstname
+        self.lst = lastname
+
+    def setName(self, t, f, l):
+        self.title = t
+        self.fst = f
+        self.lst = l
+
+    def getFullName(self):
+        return f"Full name = {self.title}.{self.fst} {self.lst}"
+
+class Date(object):
+
+    def __init__(self, day, month, year):
+        self.day = day
+        self.month = month
+        self.year = year
+
+    def setDate(self,d,m,y):
+        self.day = d
+        self.month = m
+        self.year = y
+
+    def getDate(self):
+        return f"{self.day:02d}/{self.month:02d}/{self.year:4d}"
+
+    def getDateBC(self):
+        return f"{self.day:02d}/{self.month:02d}/{self.year+ 543:4d}"
+
+class Address(object):
+
+    def __init__(self, houseNo, street, district, city, country, postcode):
+        self.no = houseNo
+        self.st = street
+        self.dt = district
+        self.ct = city
+        self.cn = country
+        self.po = postcode
+
+    def setAddress(self, houseNo, street, district, city, country, postcode):
+        self.no = houseNo
+        self.st = street
+        self.dt = district
+        self.ct = city
+        self.cn = country
+        self.po = postcode
+
+    def getAddress(self):
+        return f"House No: {self.no} Street: {self.st} District: {self.dt} City: {self.ct} Country: {self.cn} Postcode: {self.po}"
+
+class Department():
+    def __init__(self,description,manager,employeelist):
+        self.des  = description
+        self.man = manager
+        self.list = employeelist
+    def addEmployee(self,e):
+        self.list.append(e)
+        e.department = self.des
+    def deleteEmpolyee(self,e):
+        self.list.remove(e)
+        e.department = 'NULL'
+    def setManager(self,e):
+        if( type(e)==PermEmployee) and (e in self.list):
+            self.man = e
+        else: return "Not a permanent employee or not in the list"
+    def printinfo(self):
+        str1 = ""
+        for i in range (len(self.list)):
+            str1+=self.list[i].printinfo()
+            str1+="              "
+        return "Department : "+self.des+"                    Manager : "+self.man.first+"                       Employeelist : "+str1
