@@ -55,3 +55,10 @@ class AlarmClock(Clock):
         if self.alarm_on_off == True and self.hh == self.alarm_hh and self.mm == self.alarm_mm and self.ss == self.alarm_ss:
             print(f"Alarmed\n{super().get_time()}")
             exit(0)
+
+test = AlarmClock(23,57,00,True)
+print(f"Current time: {test.get_time()}")
+test.setTime(23,56,59)
+test.run()
+
+#Q2
