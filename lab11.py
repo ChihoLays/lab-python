@@ -133,39 +133,32 @@ class Sci_calc(Calculator):
 
 #Q3 still need to fix
 class Name:
-    def __init__(self, title, firstname, lastname):
+    def __init__(self,title,fName,lName):
         self.title = title
-        self.fst = firstname
-        self.lst = lastname
-
-    def setName(self, t, f, l):
+        self.fName = fName
+        self.lName = lName
+    def setName(self,t,f,l):
         self.title = t
-        self.fst = f
-        self.lst = l
-
+        self.fName = f
+        self.lName = l
     def getFullName(self):
-        return f"Full name = {self.title}.{self.fst} {self.lst}"
+        print(f"{self.title}. {self.fName}")
 
-class Date(object):
-
-    def __init__(self, day, month, year):
-        self.day = day
-        self.month = month
-        self.year = year
-
+class Date:
+    def __init__(self,d,m,y):
+        self.d = d
+        self.m = m
+        self.y = y
     def setDate(self,d,m,y):
-        self.day = d
-        self.month = m
-        self.year = y
-
+        self.d = d
+        self.m = m
+        self.y = y
     def getDate(self):
-        return f"{self.day:02d}/{self.month:02d}/{self.year:4d}"
-
+        return f"{self.d:02d}/{self.m:02d}/{self.y}"
     def getDateBC(self):
-        return f"{self.day:02d}/{self.month:02d}/{self.year+ 543:4d}"
+        return f"{self.d:02d}/{self.m:02d}/{self.y+543}"
 
-class Address(object):
-
+class Address():
     def __init__(self, houseNo, street, district, city, country, postcode):
         self.no = houseNo
         self.st = street
@@ -189,20 +182,51 @@ class Department():
     def __init__(self,description,manager,employeelist):
         self.des  = description
         self.man = manager
-        self.list = employeelist
+        self.elist = employeelist
     def addEmployee(self,e):
-        self.list.append(e)
+        self.elist.append(e)
         e.department = self.des
     def deleteEmpolyee(self,e):
-        self.list.remove(e)
+        self.elist.remove(e)
         e.department = 'NULL'
     def setManager(self,e):
-        if( type(e)==PermEmployee) and (e in self.list):
+        if( type(e)==PermEmployee) and (e in self.elist):
             self.man = e
         else: return "Not a permanent employee or not in the list"
     def printinfo(self):
-        str1 = ""
-        for i in range (len(self.list)):
-            str1+=self.list[i].printinfo()
-            str1+="              "
-        return "Department : "+self.des+"                    Manager : "+self.man.first+"                       Employeelist : "+str1
+        return f"Department : {self.des}\tManager : {self.man.first}\tEmployeelist : {','.join(self.elist)}"
+
+class Person(Name,Date,Address):
+    def __init__ (self,title,first,last,d,m,y,houseno,street,district,city,country,postcode):
+        self.name = Name(title,first,last)
+        self.birthdate = Date(d,m,y)
+        self.address = Address(houseno,street,district,city,country,postcode)
+    def printInfo(self):
+        self.name.getFullName()
+        self.birthdate.getDate()
+        self.address.getAddress()
+
+class Employee(Person):
+    def __init__(self,title,first,last,d,m,y,houseno,street,district,city,country,postcode,sd,sm,sy,description,manager,employeelist):
+        super().__init__(title,first,last,d,m,y,houseno,street,district,city,country,postcode)
+        self.startdate = Date(sd,sm,sy)
+        self.department = Department(description,manager,employeelist)
+    def printInfo(self):
+        super().printInfo()
+        self.department.printinfo()
+
+class TempEmployee(Employee):
+    def __init__(self,title,first,last,d,m,y,houseno,street,district,city,country,postcode,sd,sm,sy,description,manager,employeelist,wage):
+        super().__init__(title,first,last,d,m,y,houseno,street,district,city,country,postcode,sd,sm,sy,description,manager,employeelist)
+        self.wage = wage
+    def printInfo(self):
+        super().printInfo()
+        print(f"wage: {self.wage}")
+
+class PermEmployee(Employee):
+    def __init__(self,title,first,last,d,m,y,houseno,street,district,city,country,postcode,sd,sm,sy,description,manager,employeelist,salary):
+        super().__init__(title,first,last,d,m,y,houseno,street,district,city,country,postcode,sd,sm,sy,description,manager,employeelist)
+        self.salary = salary
+    def printInfo(self):
+        super().printInfo()
+        print(f"wage: {self.salary}")
