@@ -134,3 +134,166 @@ class StrikerBot(Robot):
     # Your code
    
 #Q2 already code
+import turtle
+from math import sqrt
+def RobotBattle():
+    # robotList stores the list of robots in the battle
+    robotList = [MedicBot(),StrikerBot(),Robot()]
+
+    while True:
+        #Clear the screen and draw the robots
+        turtle.clear()
+        for robot in robotList:
+            robot.draw()
+        #Display the satatus of each robot
+        print("==== Robots ====")
+        i=0
+        for robot in robotList:
+            print(f"{i} : ")
+            robot.displayStatus()
+            i+=1
+        print("===============")
+
+        #Ask which robot to command or to create a new robot
+        choice = input("Enter which robot to order, 'c' to create new robot, 'q' to quit\n")
+        if choice == "q":
+            break
+        elif choice == "c":
+            print("Enter which type of robot to create")
+            robotType = input("'r' for Robot, 'm' for MedicBot, 's' for StrikerBot\n")
+            if robotType == "r":
+                newRobot = Robot()
+            elif robotType == "m":
+                newRobot = MedicBot()
+            elif robotType == "s":
+                newRobot = StrikerBot()
+            robotList = robotList + [newRobot]
+        else:
+            n = int(choice)
+            robotList[n].command(robotList)
+        #Delete all the robots with health <= 0 from the list
+        i = 0
+        for robot in robotList:
+            if(robot.health <= 0):
+                del robotList[i]
+            i += 1
+
+class Robot(object):
+    def __init__(self):
+        self.x = 100
+        self.y = 100
+        self.health = 100
+        self.energy = 100
+
+    def move(self,newX,newY):
+        self.x = newX
+        self.y = newY
+
+    def draw(self):
+        turtle.penup()
+        turtle.goto(self.x,self.y-30)
+        turtle.pendown()
+        turtle.circle(30)
+        turtle.penup()
+        turtle.goto(self.x, self.y)
+        turtle.pendown()
+
+
+    def displayStatus(self):
+        print(f"x= {self.x} y= {self.y} health= {self.health} energy= {self.energy}")
+
+    def command(self,robotList):
+        print("Possible action: move")
+        newX = int(input("Enter new x-coordinate: "))
+        newY = int(input("Enter new y-coordinate: "))
+        self.move(newX,newY)
+
+class MedicBot(Robot):
+    def __init__(self):
+        super().__init__()
+    def heal(self,r):
+        if self.energy >= 20:
+            distance= sqrt((pow((self.x-r.x),2)) + (pow((self.y-r.y),2)))
+            if distance <= 10:
+                self.energy -= 20
+                r.health += 10
+    def command(self,robotList):
+        choice = input("Enter your order, 'm' to move the robot, 'h' to heal other robot in the robotList\n")
+        if choice == "m":
+            super().command(robotList)
+        elif choice == "h":
+            print("==== Robots ====")
+            i = 0
+            for robot in robotList:
+                print(f"{i} : ")
+                robot.displayStatus()
+                i += 1
+            print("===============")
+            n = int(input("Which robot will be healed:"))
+            if n in range(len(robotList)):
+                self.heal(robotList[n])
+    def draw(self):
+        super().draw()
+        turtle.penup()
+        turtle.goto(self.x-5,self.y-15)
+        turtle.pendown()
+        for i in range(4):
+            turtle.fd(10)
+            turtle.left(90)
+            turtle.fd(10)
+            turtle.right(90)
+            turtle.fd(10)
+            turtle.left(90)
+        turtle.penup()
+        turtle.goto(self.x, self.y)
+        turtle.pendown()
+
+class StrikerBot(Robot):
+    def __init__(self):
+        super().__init__()
+        self.missile = 5
+    def strike(self,r):
+        if self.energy >= 20 and self.missile > 0:
+            distance = sqrt((pow((self.x - r.x), 2)) + (pow((self.y - r.y), 2)))
+            if distance <= 10:
+                self.energy -= 20
+                self.missile -= 1
+                r.health -= 50
+    def displayStatus(self):
+        super().displayStatus()
+        print(f"missile = {self.missile}")
+
+    def command(self,robotList):
+        choice = input("Enter your order, 'm' to move the robot, 's' to strike other robot in the robotList\n")
+        if choice == "m":
+            super().command(robotList)
+        elif choice == "s":
+            print("==== Robots ====")
+            i = 0
+            for robot in robotList:
+                print(f"{i} : ")
+                robot.displayStatus()
+                i += 1
+            print("===============")
+            n = int(input("Which robot will be strike:"))
+            if n in range(len(robotList)):
+                self.strike(robotList[n])
+    def draw(self):
+        super().draw()
+        turtle.penup()
+        turtle.goto(self.x, self.y -15)
+        turtle.pendown()
+        turtle.left(45)
+        for i in range(4):
+            turtle.fd(25)
+            turtle.left(90)
+        turtle.left(-45)
+        turtle.penup()
+        turtle.goto(self.x, self.y)
+        turtle.pendown()
+
+turtle.speed(0)
+RobotBattle()
+turtle.done()
+
+#Q3
