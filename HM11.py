@@ -297,3 +297,55 @@ RobotBattle()
 turtle.done()
 
 #Q3
+from turtle import *
+def spawn():
+    penup()
+    goto(0,0)
+    setheading(0)
+    pendown()
+
+class Point:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+    def draw(self):
+        penup()
+        goto(self.x,self.y-0.5)
+        pendown()
+        begin_fill()
+        circle(1)
+        end_fill()
+        spawn()
+    def get_coor(self):
+        return f"({self.x},{self.y})"
+class Rectangle2D:
+    def getRectangle(self,points):
+        coor_x = []
+        coor_y = []
+        for i in range(0,len(points),2):
+            Point(points[i],points[i+1]).draw()
+            coor_x.append(points[i])
+            coor_y.append(points[i+1])
+        coor_y.sort()
+        coor_x.sort()
+        width = coor_x[-1] - coor_x[0]
+        height = coor_y[-1] - coor_y[0]
+        center = Point(coor_x[0]+(width/2),coor_y[0]+(height/2))
+        center.draw()
+        penup()
+        goto(coor_x[0],coor_y[0])
+        pendown()
+        goto(coor_x[-1],coor_y[0])
+        goto(coor_x[-1],coor_y[-1])
+        goto(coor_x[0], coor_y[-1])
+        goto(coor_x[0], coor_y[0])
+        print(f"The bounding rectangle is centered at {center.get_coor()} with width {width:.1f} and height {height:.1f}")
+
+usin = input("Enter the points: ").split()
+usin = list(map(float,usin))
+r2d = Rectangle2D()
+speed(0)
+r2d.getRectangle(usin)
+done()
+#input 1.0 2.5 3 4 5 6 7 8 9 10 
+#input 10.0 25 30 40 50 60 70 80 90 100 
