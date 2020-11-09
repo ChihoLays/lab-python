@@ -299,16 +299,16 @@ turtle.done()
 
 #Q3
 from turtle import *
-def spawn():
-    penup()
-    goto(0,0)
-    setheading(0)
-    pendown()
 
 class Point:
     def __init__(self,x,y):
         self.x = x
         self.y = y
+    def spawn(self):
+        penup()
+        goto(0, 0)
+        setheading(0)
+        pendown()
     def draw(self):
         penup()
         goto(self.x,self.y-0.5)
@@ -316,38 +316,50 @@ class Point:
         begin_fill()
         circle(1)
         end_fill()
-        spawn()
+        self.spawn()
     def get_coor(self):
         return f"({self.x},{self.y})"
+
 class Rectangle2D:
-    def getRectangle(self,points):
-        coor_x = []
-        coor_y = []
-        for i in range(0,len(points),2):
-            Point(points[i],points[i+1]).draw()
-            coor_x.append(points[i])
-            coor_y.append(points[i+1])
-        coor_y.sort()
-        coor_x.sort()
-        self.width = coor_x[-1] - coor_x[0]
-        self.height = coor_y[-1] - coor_y[0]
-        self.center = Point(coor_x[0]+(self.width/2),coor_y[0]+(self.height/2))
-        self.center.draw()
+    def __init__(self,width,height,center):
+        self.height = height
+        self.width = width
+        self.center = center
+    def draw(self):
+        x = self.center.x
+        y = self.center.y
         penup()
-        goto(coor_x[0],coor_y[0])
+        goto(x - (self.width/2),y- (self.height/2))
         pendown()
-        goto(coor_x[-1],coor_y[0])
-        goto(coor_x[-1],coor_y[-1])
-        goto(coor_x[0], coor_y[-1])
-        goto(coor_x[0], coor_y[0])
-        print(f"The bounding rectangle is centered at {self.center.get_coor()} with width {self.width:.1f} and height {self.height:.1f}")
+        goto(x + (self.width/2), y- (self.height/2))
+        goto(x + (self.width/2), y + (self.height/2))
+        goto(x - (self.width/2), y + (self.height/2))
+        goto(x - (self.width/2), y - (self.height/2))
+
+def getRectangle(points):
+    coor_x = []
+    coor_y = []
+    all_coor = []
+    for i in range(0,len(points),2):
+        all_coor.append(Point(points[i],points[i+1]))
+        coor_x.append(points[i])
+        coor_y.append(points[i+1])
+    coor_y.sort()
+    coor_x.sort()
+    width = coor_x[-1] - coor_x[0]
+    height = coor_y[-1] - coor_y[0]
+    center = Point(coor_x[0]+(width/2),coor_y[0]+(height/2))
+    return [Rectangle2D(width,height,center),all_coor]
 
 usin = input("Enter the points: ").split()
 usin = list(map(float,usin))
-r2d = Rectangle2D()
+r2d = getRectangle(usin)
 speed(0)
-r2d.getRectangle(usin)
+r2d[0].draw()
+for i in r2d[1]:
+    i.draw()
+print(f"The bounding rectangle is centered at {r2d[0].center.get_coor()} with width {r2d[0].width:.1f} and height {r2d[0].height:.1f}")
 done()
+
 #input 1.0 2.5 3 4 5 6 7 8 9 10
 #input 10.0 25 30 40 50 60 70 80 90 100
-
