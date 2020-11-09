@@ -53,7 +53,7 @@ class AlarmClock(Clock):
         super().run()
         print(f"Current time: {super().get_time()}")
         if self.alarm_on_off == True and self.hh == self.alarm_hh and self.mm == self.alarm_mm and self.ss == self.alarm_ss:
-            print(f"Alarmed\n{super().get_time()}")
+            print(f"Alarmed:\n{super().get_time()}")
             exit(0)
 
 test = AlarmClock(23,57,00,True)
