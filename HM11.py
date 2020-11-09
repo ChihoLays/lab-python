@@ -191,9 +191,9 @@ class Robot(object):
 
     def draw(self):
         turtle.penup()
-        turtle.goto(self.x,self.y-30)
+        turtle.goto(self.x,self.y-5)
         turtle.pendown()
-        turtle.circle(30)
+        turtle.circle(5)
         turtle.penup()
         turtle.goto(self.x, self.y)
         turtle.pendown()
@@ -235,14 +235,14 @@ class MedicBot(Robot):
     def draw(self):
         super().draw()
         turtle.penup()
-        turtle.goto(self.x-5,self.y-15)
+        turtle.goto(self.x-(5/6),self.y-(15/6))
         turtle.pendown()
         for i in range(4):
-            turtle.fd(10)
+            turtle.fd(10/6)
             turtle.left(90)
-            turtle.fd(10)
+            turtle.fd(10/6)
             turtle.right(90)
-            turtle.fd(10)
+            turtle.fd(10/6)
             turtle.left(90)
         turtle.penup()
         turtle.goto(self.x, self.y)
@@ -281,11 +281,11 @@ class StrikerBot(Robot):
     def draw(self):
         super().draw()
         turtle.penup()
-        turtle.goto(self.x, self.y -15)
+        turtle.goto(self.x, self.y -(5/2))
         turtle.pendown()
         turtle.left(45)
         for i in range(4):
-            turtle.fd(25)
+            turtle.fd((25/6))
             turtle.left(90)
         turtle.left(-45)
         turtle.penup()
@@ -295,6 +295,7 @@ class StrikerBot(Robot):
 turtle.speed(0)
 RobotBattle()
 turtle.done()
+
 
 #Q3
 from turtle import *
