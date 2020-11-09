@@ -329,10 +329,10 @@ class Rectangle2D:
             coor_y.append(points[i+1])
         coor_y.sort()
         coor_x.sort()
-        width = coor_x[-1] - coor_x[0]
-        height = coor_y[-1] - coor_y[0]
-        center = Point(coor_x[0]+(width/2),coor_y[0]+(height/2))
-        center.draw()
+        self.width = coor_x[-1] - coor_x[0]
+        self.height = coor_y[-1] - coor_y[0]
+        self.center = Point(coor_x[0]+(self.width/2),coor_y[0]+(self.height/2))
+        self.center.draw()
         penup()
         goto(coor_x[0],coor_y[0])
         pendown()
@@ -340,7 +340,7 @@ class Rectangle2D:
         goto(coor_x[-1],coor_y[-1])
         goto(coor_x[0], coor_y[-1])
         goto(coor_x[0], coor_y[0])
-        print(f"The bounding rectangle is centered at {center.get_coor()} with width {width:.1f} and height {height:.1f}")
+        print(f"The bounding rectangle is centered at {self.center.get_coor()} with width {self.width:.1f} and height {self.height:.1f}")
 
 usin = input("Enter the points: ").split()
 usin = list(map(float,usin))
@@ -348,5 +348,6 @@ r2d = Rectangle2D()
 speed(0)
 r2d.getRectangle(usin)
 done()
-#input 1.0 2.5 3 4 5 6 7 8 9 10 
-#input 10.0 25 30 40 50 60 70 80 90 100 
+#input 1.0 2.5 3 4 5 6 7 8 9 10
+#input 10.0 25 30 40 50 60 70 80 90 100
+
