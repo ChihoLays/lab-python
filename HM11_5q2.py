@@ -11,8 +11,6 @@ class Magazine(StationaryGood):
     def __init__(self,amount,price):
         super().__init__(amount,price)
 class Book(StationaryGood):
-    def __init__(self,amount,price):
-        super().__init__(amount,price)
     def get_price(self):
         return  (super().get_price() * 0.9)
 class Ribbon(StationaryGood):
