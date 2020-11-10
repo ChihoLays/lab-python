@@ -18,6 +18,7 @@ class Clock:
     def run(self):
         self.ss += 1
         self.format_time()
+        print(f"Current time: {self.get_time()}")
     def setTime(self,h,m,s):
         self.hh = h
         self.mm = m
@@ -51,9 +52,9 @@ class AlarmClock(Clock):
         self.alarm_on_off = False
     def run(self):
         super().run()
-        print(f"Current time: {super().get_time()}")
+        print(f"Alarm time: {self.alarm_hh:02d}:{self.alarm_mm:02d}:{self.alarm_ss:02d}")
         if self.alarm_on_off == True and self.hh == self.alarm_hh and self.mm == self.alarm_mm and self.ss == self.alarm_ss:
-            print(f"Alarmed:\n{super().get_time()}")
+            print(f"Alarmed!")
             exit(0)
 
 test = AlarmClock(23,57,00,True)
