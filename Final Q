@@ -35,3 +35,21 @@ for i in range(2):
 display_mtx(multiply_mtx(matrix[0],matrix[1],[size[0][0],size[1][1]]))
 
 #2 Calculate grade result using dict
+subject_dict = dict({})
+try:
+    while True:
+        print("Example format: Science:(3.00,A)")
+        print("To exit enter -1")
+        usin = input("Enter here: ").split(":")
+        if usin == ['-1']:
+            raise Exception
+        subject = usin[0]
+        usin = usin[1].replace("(", "")
+        usin = usin.replace(")", "")
+        credit, grade = usin.split(",")
+        credit = float(credit)
+        subject_dict[subject] = (credit, grade)
+except:
+    print(subject_dict)
+
+
