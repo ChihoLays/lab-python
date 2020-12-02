@@ -1,0 +1,37 @@
+#Matrix multiplication
+def display_mtx(mtx):
+    for ele in mtx:
+        print(ele)
+def multiply_mtx(mtx1,mtx2,size_list):
+    product_mtx = []
+    for i in range(size_list[0]): # row mtx1
+        product_mtx.append([])
+        for a in range(size_list[1]): #col mtx2
+            sum = 0
+            for j in range(len(mtx2)): # row mtx2
+                sum += (mtx1[i][j] * mtx2[j][a]) #Why j? because col1 == row2
+            product_mtx[i].append(sum)
+    return product_mtx
+matrix =[[],[]]
+#row x column
+size = []
+#if mtx1 = AxB and mtx2 = CxD
+#Can multiply if B == C
+#Cannot multiply if B != C
+while True:
+    size.append(list(map(int, input("Size matrix1: ").split("x"))))
+    size.append(list(map(int, input("Size matrix2: ").split("x"))))
+    if size[0][1] != size[1][0]:
+        print("Error: Matrix isn't possible to multiply.")
+        size.clear()
+    else:
+        break
+for i in range(2):
+    for j in range(size[i][0]):
+        matrix[i].append([])
+        for m in range(size[i][1]):
+            usin = int(input(f"matrix{i+1}({j}x{m})= "))
+            matrix[i][j].append(usin)
+display_mtx(multiply_mtx(matrix[0],matrix[1],[size[0][0],size[1][1]]))
+
+#2 Calculate grade result using dict
