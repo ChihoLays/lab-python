@@ -143,8 +143,8 @@ Weight: (weight) kg
 Color: (Color)
 2. open -> a method that will unlock the lock
 3. lock -> a method that will lock the lock
-4. add_item -> Add an item to your box
-5. rem_item -> Remove an item to your box
+4. add_item(item) -> Add an item to your box
+5. rem_item(item) -> Remove an item to your box
 6. disp_item -> check first if the lock is still on then display a message that the box is locked
 if the box doesn't lock then display all item in the box
 """
