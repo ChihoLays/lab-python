@@ -7,7 +7,7 @@ If you create a big project in C you will know that managing many functions and 
 and confusing. And that's where class come in by categorizing the func and data to a set of data that can
 be easier to develop, debug, and manage.
 
-For this revision let's try to create a class of 2D shapes.
+For this revision lets try to create a class of 2D shapes.
 """
 # Square
 # Properties:
@@ -18,7 +18,7 @@ class Square:  # Define a class named Square
     def __init__(self, side):
         # Use the parameter to turn it into a data called self.side which can be accessed in the class itself
         self.side = side
-# Let's try to use this class
+# Lets try to use this class
 square1 = Square(2)
 square2 = Square(4)
 print(f"sq1 = side:{square1.side}")
@@ -32,7 +32,7 @@ print(f"sq2 = side:{square2_side}")
 # The same?
 # That's the case because our class have only one properties
 # But what if the class more than 1 properties?
-# Let's try that again with a Box
+# Lets try that again with a Box
 # Box
 # Properties:
 # - size
@@ -100,7 +100,7 @@ Owner:Jack Brand:Nissan Color:White ID:COVID-19 Year:2019
 Now you've understand how initializing and why class are made and what is it good for.
 Let's continue with the next part
 The class we created can only store data but it can't use any of its data yet.
-Let's upgrade our Square class
+Lets upgrade our Square class
 """
 class Square:  # Define a class named Square
     # Telling what does this class info contain.
