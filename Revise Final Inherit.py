@@ -66,13 +66,13 @@ class Dog:
         print(f"{self.name}: *barked*")
 # class the child class
 class Bulldog(Dog):  # Inside the () is where the class will inherit all the attr and method from
-    def __init__(self, name, age,spiecies):
-        super().__init__(name,age,"Bull dog")
+    def __init__(self, name, age):
+        super().__init__(name,age,"Bull dog") #called tge __init__ func from parents
 class GoldenRetriever(Dog):
-    def __init__(self, name, age,spiecies):
+    def __init__(self, name, age):
         super().__init__(name,age,"Golden Retriever")
 class Greyhound(Dog):
-    def __init__(self, name, age,spiecies):
+    def __init__(self, name, age):
         super().__init__(name,age,"Greyhound")
 
 """
