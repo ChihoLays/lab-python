@@ -1,0 +1,53 @@
+class Rectangle:
+    def __init__(self):
+        self.width = 1
+        self.height = 2
+    def getArea(self): return (self.width * self.height)
+    def getPerimeter(self): return (2 * self.width) + (2 * self.height)
+
+class Stock:
+    def __init__(self, ss, sn, pCP, cP):
+        self.__symbol = ss
+        self.__name = sn
+        self.__pCP = pCP
+        self.__cP = cP
+    def getStockName(self): return self.__name
+    def getStockSymbol(self): return self.__symbol
+    def getStockPreviousPrice(self): return self.__pCP
+    def getStockCurrentPrice(self): return self.__pCP
+    def setStockPreviousPrice(self, pCP): self.__pCP = pCP
+    def setStockCurrentPrice(self, cP): self.__cP = cP
+    def getChangePercent(self): return ((self.__cP / self.__pCP) * 100)
+
+class Account:
+    def __init__(self):
+        self.__id = 0
+        self.__balance = 100.0
+        self.__aIR = 0.0
+    def getID(self): return self.__id
+    def getBalance(self): return self.__balance
+    def getaIR(self): return self.__aIR
+    def setID(self, id): self.__id = id
+    def setBalance(self, balance): self.__balance = balance
+    def setaIR(self, aIR): self.__aIR = aIR
+    def getMothlyInterestRate(self): (self.__balance * ((self.__aIR/1200)))
+    def withdraw(self, amount): self.__balance -= amount
+    def deposit(self,amount): self.__balance += amount
+
+class Fan:
+    def __init__(self):
+        self.slow = 1
+        self.medium = 2
+        self.fast = 3
+        self.__speed = self.slow
+        self.__on = False
+        self.__radius = 5
+        self.__color = "Blue"
+    def getSpeed(self): return self.__speed
+    def getON(self): return self.__on
+    def getRadius(self): return self.__radius
+    def getColor(self): return self.__color
+    def setSpeed(self, speed): self.__speed = speed
+    def setON(self, on): self.__on = on
+    def setRadius(self, r): self.__radius = r
+    def setColor(self, color): self.__color = color
