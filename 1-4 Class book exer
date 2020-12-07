@@ -11,26 +11,26 @@ class Stock:
         self.__name = sn
         self.__pCP = pCP
         self.__cP = cP
-    def getStockName(self): return self.__name
-    def getStockSymbol(self): return self.__symbol
-    def getStockPreviousPrice(self): return self.__pCP
-    def getStockCurrentPrice(self): return self.__pCP
-    def setStockPreviousPrice(self, pCP): self.__pCP = pCP
-    def setStockCurrentPrice(self, cP): self.__cP = cP
-    def getChangePercent(self): return ((self.__cP / self.__pCP) * 100)
+    def get_StockName(self): return self.__name
+    def get_StockSymbol(self): return self.__symbol
+    def get_StockPreviousPrice(self): return self.__pCP
+    def get_StockCurrentPrice(self): return self.__pCP
+    def set_StockPreviousPrice(self, pCP): self.__pCP = pCP
+    def set_StockCurrentPrice(self, cP): self.__cP = cP
+    def get_ChangePercent(self): return ((self.__cP / self.__pCP) * 100)
 
 class Account:
     def __init__(self):
         self.__id = 0
         self.__balance = 100.0
         self.__aIR = 0.0
-    def getID(self): return self.__id
-    def getBalance(self): return self.__balance
-    def getaIR(self): return self.__aIR
-    def setID(self, id): self.__id = id
-    def setBalance(self, balance): self.__balance = balance
-    def setaIR(self, aIR): self.__aIR = aIR
-    def getMothlyInterestRate(self): (self.__balance * ((self.__aIR/1200)))
+    def get_ID(self): return self.__id
+    def get_Balance(self): return self.__balance
+    def get_aIR(self): return self.__aIR
+    def set_ID(self, id): self.__id = id
+    def set_Balance(self, balance): self.__balance = balance
+    def set_aIR(self, aIR): self.__aIR = aIR
+    def get_MothlyInterestRate(self): (self.__balance * ((self.__aIR/1200)))
     def withdraw(self, amount): self.__balance -= amount
     def deposit(self,amount): self.__balance += amount
 
@@ -43,11 +43,11 @@ class Fan:
         self.__on = False
         self.__radius = 5
         self.__color = "Blue"
-    def getSpeed(self): return self.__speed
-    def getON(self): return self.__on
-    def getRadius(self): return self.__radius
-    def getColor(self): return self.__color
-    def setSpeed(self, speed): self.__speed = speed
-    def setON(self, on): self.__on = on
-    def setRadius(self, r): self.__radius = r
-    def setColor(self, color): self.__color = color
+    def get_Speed(self): return self.__speed
+    def get_ON(self): return self.__on
+    def get_Radius(self): return self.__radius
+    def get_Color(self): return self.__color
+    def set_Speed(self, speed): self.__speed = speed
+    def set_ON(self, on): self.__on = on
+    def set_Radius(self, r): self.__radius = r
+    def set_Color(self, color): self.__color = color
